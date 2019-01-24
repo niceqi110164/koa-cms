@@ -1,0 +1,92 @@
+
+.footer{
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    background-color: #31343a;
+    background-image: url("../images/line-bg.png");
+    background-repeat: repeat;
+}
+p{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: none;
+    line-height: 28px;
+    letter-spacing: 0px;
+}
+.footer h5{
+    font-size: 18px;
+    color: rgba(255,255,255,0.4) !important;
+    letter-spacing: 0.5px;
+    margin-bottom:30px;
+}
+.footer .icon-list>li{
+    float:left;
+    margin-left:135px;
+}
+.with-link{
+    line-height: 1.6;
+}
+.with-link a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    color:inherit;
+    margin:10px 0;
+}
+.delimeter{
+    width: 60%;
+    border-bottom:1px dotted rgba(255, 255, 255, 0.2);
+}
+.footer .footer-empty{
+    width:100%;
+    height:60px;
+}
+.footer .footer-empty.middle{
+    height:25px;
+}
+.subfooter{
+    position: relative;
+    min-height: 74px;
+    overflow: hidden;
+    padding: 20px 0;
+    background: #323232;
+    z-index: 1;
+}
+
+.subfooter-copyright{
+    font-size: 13px;
+    color: rgba(86, 86, 86, 0.8);
+    text-align: right;
+    line-height: 28px;
+}
+.subfooter-copyright a{
+    color: rgba(86, 86, 86, 0.8);
+}
+@media only screen and (max-width: 799px){
+    .footer .icon-list>li{
+        float:none;
+        margin-left:0px;
+    }
+    .icon-list{
+        margin:0 15px;
+    }
+    .footer h5{
+        margin-bottom:15px;
+    }
+    .with-link{
+        width:20%;
+        float:left;
+    }
+    .subfooter .sub-footer-wrapper{
+        margin:0 20px;
+    }
+    .subfooter-copyright {
+        line-height: 28px;
+        text-align: center;
+    }
+}
+
+
