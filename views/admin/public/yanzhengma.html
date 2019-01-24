@@ -1,0 +1,19 @@
+<!--点击切换验证码-->
+<script src='{{__HOST__}}/admin/js/jquery-1.10.2.min.js'></script>
+<script>
+  $(function () {
+    $('#code-svg').click(function () {
+      $(this).attr('src', '{{__HOST__}}/admin/login/code?t=' + Math.random() * 1000);
+    });
+
+    $('#LoginForm').submit(function(){
+      if ($('#username').val() === "" || $('#password').val() === "" || $('#code') === "") {
+        alert('用户名或密码或验证码不能为空');
+        return false;
+      }
+      return true;
+    })
+
+
+  })
+</script>

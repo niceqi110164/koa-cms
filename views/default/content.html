@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+{{include 'default/public/header.html'}}
+
+<body>
+
+<div class="main">
+    <div class="main-content">
+        <!--sidebar-->
+        {{include "default/public/sidr.html"}}
+        <!--nav-->
+        {{include 'default/public/nav.html'}}
+
+        <section class="wrapper-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="header_nav-wrapper">
+    <div class="header_nav">
+        <h2>{{list.title}}&#160; <span>{{list.description}}</span></h2>
+    </div>
+
+</div>
+
+<!--<div id="header_title-wrapper">-->
+
+    <!--<div class="header_title clear">-->
+        <!--<p>-->
+            <!--<a href="#">服务优势</a>-->
+            <!--<a href="#">服务范畴</a>-->
+        <!--</p>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<div id="main-wrapper">
+
+    <div class="main">
+
+       <div class="content">
+           {{@list.content}}
+       </div>
+    </div>
+
+</div>
+
+<!--网站底部-->
+{{include 'default/public/footer.html'}}
+
+</body>
+</html>

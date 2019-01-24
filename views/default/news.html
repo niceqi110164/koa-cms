@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<!--====================================================
+                         header
+======================================================-->
+<head>
+    {{include "default/public/header-template.html"}}
+</head>
+<body>
+<!--====================================================
+                         HEADER
+======================================================-->
+<header>
+    <!-- sidr-->
+    {{include "default/public/sidr.html"}}
+    <!-- Navbar-->
+    {{include "default/public/nav-template.html"}}
+</header>
+
+<!--====================================================
+                       HOME-P
+======================================================-->
+<div id="home-p" class="home-p pages-head2 text-center">
+    <div class="container">
+        <h1 class="wow fadeInUp" data-wow-delay="0.1s">{{result.title}}</h1>
+        <p>{{result.description}}</p>
+    </div><!--/end container-->
+</div>
+
+<div id="header_title-wrapper">
+    <a href="#" id="aaaa"></a>   <!--锚点-->
+    <div class="header_title clear">
+        <p>
+            {{each titleList}}
+
+                <a {{if cid==$value._id}} class="active" {{/if}}  href="/news?cid={{@$value._id}}#aaaa">{{$value.title}}</a>
+            {{/each}}
+        </p>
+    </div>
+
+</div>
+
+<div id="main_wrapper">
+
+    <div class="main">
+        <ul class="clear">
+            {{each list}}
+                <li>
+                    <a href="/content/{{@$value._id}}"><img src="{{$value.img_url}}"/></a>
+                    <p>{{$value.description}}</p>
+                </li>
+            {{/each}}
+        </ul>
+
+        <!--分页-->
+        <div id="page" class="pagination" style="margin-top:40px;"></div>
+    </div>
+
+
+</div>
+
+
+<!--====================================================
+                      FOOTER
+======================================================-->
+{{include "default/public/footer-template.html"}}
+
+
+<!--Global JavaScript -->
+<script src="default/js/jquery/jquery.min.js"></script>
+<script src="default/js/popper/popper.min.js"></script>
+<script src="default/js/bootstrap/bootstrap.min.js"></script>
+<script src="default/js/wow/wow.min.js"></script>
+<script src="default/js/owl-carousel/owl.carousel.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="default/js/jquery-easing/jquery.easing.min.js"></script>
+<script src="default/js/custom.js"></script>
+
+<script src="/default/js/jquery-2.0.3.min.js"></script>
+<!--注意放在jq下面-->
+<script src="/default/js/jqpaginator.js"></script>
+<script>
+    $('#page').jqPaginator({
+        totalPages: {{totalPages}},
+    visiblePages: 10,
+        currentPage: {{page}},
+    onPageChange: function (num, type) {
+        // $('#text').html('当前第' + num + '页');
+        if(type =="change"){
+            {{if cid}}
+            location.href = '/news?cid={{cid}}&page='+num;
+            {{else}}
+            location.href = '/news?page='+num;
+            {{/if}}
+
+            }
+            }
+        });
+</script>
+
+</body>
+</html>

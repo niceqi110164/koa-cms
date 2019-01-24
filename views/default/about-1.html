@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+{{include 'default/public/header.html'}}
+<body>
+<div class="main">
+    <div class="main-content">
+        <!--sidebar-->
+        {{include "default/public/sidr.html"}}
+        <!--nav-->
+        {{include 'default/public/nav.html'}}
+
+        <section class="wrapper-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<div id="header_nav-wrapper">
+    <div class="header_nav">
+        <h2>{{result.keywords}} <span>{{result.description}}</span></h2>
+    </div>
+
+</div>
+
+<div id="main-wrapper">
+    <div class="main_top">
+        {{each comResult}}
+        <a href="#">
+            <img src="{{$value.img_url}}" alt="&nbsp;"/>
+        </a>
+        <dl>
+            <dt>{{$value.keywords}}</dt>
+            <dd>{{$value.description}}</dd>
+
+        </dl>
+        {{/each}}
+    </div>
+    <div class="main_center">
+        <dl class="clear">
+            <dt>企业使命 Enterprise Mission</dt>
+            <dd>
+                <a href="#">
+                    <img src="default/images/about/main_center-image1.jpg"/>
+                    <p>创作独一无二的设计</p>
+                </a>
+            </dd>
+            <dd>
+                <a href="#">
+                    <img src="default/images/about/main_center-image2.jpg"/>
+                    <p>创作独一无二的设计</p>
+                </a>
+            </dd>
+            <dd style="margin-right:0;">
+                <a href="#">
+                    <img src="default/images/about/main_center-image3.jpg"/>
+                <p>创作独一无二的设计</p>
+                </a>
+            </dd>
+        </dl>
+
+    </div>
+    <div class=" main_bottom">
+        <ul class="clear">
+            <h2>我们的办公环境 Our Office Environment</h2>
+            <li><a href="#"><img src="default/images/about/main_bottom-image1.jpg" alt="&nbsp;"/></a></li>
+            <li><a href="#"><img src="default/images/about/main_bottom-image2.jpg" alt="&nbsp;"/></a></li>
+            <li><a href="#" style=" margin-right:0;"><img src="default/images/about/main_bottom-image3.jpg"
+                                                          alt="&nbsp;"/></a></li>
+            <li><a href="#"><img src="default/images/about/main_bottom-image4.jpg" alt="&nbsp;"/></a></li>
+            <li><a href="#"><img src="default/images/about/main_bottom-image5.jpg" alt="&nbsp;"/></a></li>
+            <li><a href="#" style=" margin-right:0;"><img src="default/images/about/main_bottom-image6.jpg"
+                                                          alt="&nbsp;"/></a></li>
+            <li><a href="#" style=" margin-bottom:0;"><img src="default/images/about/main_bottom-image7.jpg"
+                                                           alt="&nbsp;"/></a></li>
+            <li><a href="#" style=" margin-bottom:0;"><img src="default/images/about/main_bottom-image8.jpg"
+                                                           alt="&nbsp;"/></a></li>
+            <li><a href="#" style=" margin-right:0; margin-bottom:0;"><img
+                src="default/images/about/main_bottom-image9.jpg" alt="&nbsp;"/></a></li>
+
+
+        </ul>
+    </div>
+</div>
+
+<!--网站底部-->
+{{include 'default/public/footer.html'}}
+
+</body>
+</html>

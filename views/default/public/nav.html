@@ -1,0 +1,67 @@
+<section class="wrapper-box nav-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand nav-title reset-navbar-brand">
+                        <img src="/{{setting.site_logo}}" alt="{{setting.site_title}}">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-6">
+                <a id="sidr-btn" href="#sidr" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <!--<span class="sr-only">切换导航</span>-->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!--<span class="icon-bar"></span>-->
+                </a>
+
+                <div class="     hidden-xs">
+                    <ul class="nav navbar-nav ml-auto navbar-right">
+                        {{each nav}}
+                        <li><!--这里有一个坑 {{if pathname==$value.url}} class="active" {{/if}} pathname==$value.url没有引号 -->
+                            <a href="{{$value.url}}" {{if pathname==$value.url}} class="active" {{/if}}> {{$value.title}} </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    $("#sidr-btn").click(function(){
+        $("#sidr").toggleClass("sidr-left");
+        if($("#sidr").hasClass("sidr-left")){
+            $("#sidr-close").css('display','block')
+        }else{
+            $("#sidr-close").css('display','none')
+        }
+    });
+    $("#sidr-close").click(function(){
+        $(this).css('display','none');
+        $("#sidr").removeClass("sidr-left")
+    });
+</script>
+
+<!--
+<div class="header-inner">
+    <div class="logo">
+        <h1>
+            <a href="#" title="欢迎来到Koa Cms项目实战">Koa Cms项目实战</a>
+        </h1>
+        <img src="/{{setting.site_logo}}" alt="{{setting.site_title}}">
+    </div>
+    <div class="nav">
+        <ul class="clear">
+            {{each nav}}
+                <li> ///这里有一个坑 {{if pathname==$value.url}} class="active" {{/if}} pathname==$value.url没有引号///
+                    <a href="{{$value.url}}" {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>-->

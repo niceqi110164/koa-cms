@@ -1,0 +1,13 @@
+<div id="sidr" class="sidr">
+    <div class="sidr-inner">
+        <ul>
+            {{each nav}}
+            <li>
+                <a href="{{$value.url}}" {{if pathname==$value.url}} class="active" {{/if}}>{{$value.title}}</a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <a id="sidr-close" href="#sidr-colse" class="sidr-close"></a>
+</div>
+

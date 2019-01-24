@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav" data-toggle="affix">
+    <div class="container">
+        <a class="navbar-brand smooth-scroll" href="index.html">
+            <img src="/{{setting.site_logo}}" alt="{{setting.site_title}}">
+        </a>
+        <button id="sidr-btn" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <!--<span class="navbar-toggler-icon"></span>-->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-hidden" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {{each nav}}
+                <li class="nav-item">
+                    <a href="{{$value.url}}" {{if pathname==$value.url}} class="active"
+                       {{/if}}>{{$value.title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+
+
+
+    $("#sidr-btn").click(function(){
+        $("#sidr").toggleClass("sidr-left");
+        if($("#sidr").hasClass("sidr-left")){
+            $("#sidr-close").css('display','block')
+        }else{
+            $("#sidr-close").css('display','none')
+        }
+    });
+    $("#sidr-close").click(function(){
+        $(this).css('display','none');
+        $("#sidr").removeClass("sidr-left")
+    })
+</script>
