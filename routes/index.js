@@ -35,14 +35,27 @@ router.get('/', async (ctx) => {
     let focusResult = await DB.find('focus', {'status': '1'}, {}, {
         sort: {'sort': 1}
     });
-
     //友情链接
     let linkResult = await DB.find('link',{});
+
+    //模块about
+    let showModelAboutResult = await DB.find('eynetaAbout',{});
+    if(showModelAboutResult.length>0){
+        showModelAboutResult = showModelAboutResult[0]
+    }
+    //模块offer
+    let showModelOfferResult = await DB.find('eynetaOffer',{});
+    //模块news
+    let showModelNewsResult = await DB.find('eynetaNews',{});
+    //console.log(showModelResult);
 
     //渲染页面
     await ctx.render('default/index', {
         focus: focusResult,
-        link:linkResult
+        link:linkResult,
+        showModelOffer:showModelOfferResult,
+        showModelNews:showModelNewsResult,
+        showModelAbout:showModelAboutResult
     });
 });
 /**
