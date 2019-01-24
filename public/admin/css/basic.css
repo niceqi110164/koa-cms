@@ -1,0 +1,30 @@
+.form-horizontal .form-group{
+    height: 44px;
+}
+.status-icon{
+    width: 60px;
+}
+.status-icon img{
+    cursor: pointer;
+}
+.edit-line:hover{
+    text-decoration:none;
+}
+.myTabs-ul{
+  
+    height:44px;
+    border-bottom:none;
+}
+.tab-height{
+    height:350px;
+}
+.form-border{
+    border: 1px solid #c5d0dc;
+}
+.sort_input{
+    width: 40px;
+    text-align: center;
+}
+.pagination{
+    float:right;
+}
