@@ -918,6 +918,7 @@ header .topmenu .top-data li a.log-top:hover {
 
 .title-bar {
     padding: 100px 0;
+    padding-bottom:0;
 }
 
 .title-bar h1 {
