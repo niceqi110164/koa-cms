@@ -86,12 +86,12 @@
                             <td>{{list.title}}</td>
                             <td class="hidden-480">{{list.content}}</td>
                             <td class="hidden-480 status-icon">
-                                {{if list.status === 1}}
+                                {{if list.status === '1'}}
                                 <img src="{{__HOST__}}/admin/images/yes.gif"
-                                     onclick="app.toggle(this,'eynetaAbout','status','{{list._id}}')" alt="图标">
+                                     onclick="app.toggle(this,'eynetaAbout','status','{{@list._id}}')" alt="图标">
                                 {{else}}
                                 <img src="{{__HOST__}}/admin/images/no.gif"
-                                     onclick="app.toggle(this,'eynetaAbout','status','{{list._id}}')" alt="图标">
+                                     onclick="app.toggle(this,'eynetaAbout','status','{{@list._id}}')" alt="图标">
                                 {{/if}}
                             </td>
                             <td class="visible-md visible-lg hidden-sm hidden-xs center">
