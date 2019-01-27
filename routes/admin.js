@@ -65,6 +65,7 @@ let article = require('./admin/article');
 let focus = require('./admin/focus');
 let link = require('./admin/link');
 let nav = require('./admin/nav');
+let siteInfo = require('./admin/siteInfo');
 let setting = require('./admin/setting');
 
 
@@ -76,6 +77,7 @@ router.use('/article',article);
 router.use('/focus',focus);
 router.use('/link',link);
 router.use('/nav',nav);
+router.use('/siteInfo',siteInfo);
 router.use('/setting',setting);
 
 // 配置后台图片上传
