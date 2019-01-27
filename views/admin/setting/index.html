@@ -70,7 +70,7 @@
                             <input type="text" id="site_title" name="site_title" value="{{list.site_title}}" placeholder="" class="col-xs-10 col-sm-5">
                         </div>
                     </div>
-
+                    <!--头部logo-->
                     <div class="form-group" style="height:120px;">
                         <label class="col-sm-2 control-label no-padding-right" for="site_logo">网站logo:</label>
 
@@ -79,6 +79,18 @@
                         </div>
                         <div class="col-sm-10">
                             <img src="{{__HOST__}}/{{list.site_logo}}" alt="" width="80px" style="margin:10px 0 10px 10px;" >
+                        </div>
+
+                    </div>
+                    <!--footer logo-->
+                    <div class="form-group" style="height:120px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="site_logo">网站footer logo:</label>
+
+                        <div class="col-sm-10">
+                            <input type="file" id="siteFooter_logo" name="siteFooter_logo" placeholder="" class="col-xs-10 col-sm-5">
+                        </div>
+                        <div class="col-sm-10">
+                            <img src="{{__HOST__}}/{{list.siteFooter_logo}}" alt="" width="80px" style="margin:10px 0 10px 10px;" >
                         </div>
 
                     </div>
