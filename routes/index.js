@@ -137,7 +137,7 @@ router.get('/news', async (ctx) => {
     //newsResultNum = await DB.count('article',{'pid':{$in:newsResultTitleListArr},'status':'1'},);
     //console.log(newsResultList);
 
-    console.log(newsResultList);
+    //console.log(newsResultList);
     await ctx.render('default/news',{
         result:result[0],//获取顶级分类
         //titleList:newsResultTitleList, //二级分类标题
