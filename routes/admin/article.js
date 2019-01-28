@@ -4,31 +4,6 @@ let router = require('koa-router')();
 let DB = require('../../model/db');
 let tools = require('../../model/tools');
 
-/**
-    koa-multer 是一个 node.js 中间件，
-    用于处理 multipart/form-data 类型的表单数据，它主要 用于上传文件。
-
-    koa-multer不会处理任何非 multipart/form-data 类型的表单数据,意思就是我们要上传图片必须在 from 表单上面加 multipart/form-data
- */
-let multer = require('koa-multer'); //引入koa-multer模块
-//let file = require('file');//引入file模块
-
-//配置
-let storage = multer.diskStorage({
-    /**文件保存路径*/
-    destination:function(req,file,cb){
-        cb(null,'public/upload/'); /**注意路径必须存在*/
-    },
-    //修改文件名称
-    filename:function(req,file,cb){
-        //console.log(file);// 对象
-        let fileFormat = (file.originalname).split(".");
-        //console.log(fileFormat); //[ 'good2', 'jpg' ] 分割后的数组
-        cb(null,Date.now()+"."+fileFormat[fileFormat.length-1]);
-    }
-});
-//加载配置
-let upload=multer({storage:storage});
 
 /**
  * 列表
@@ -68,17 +43,17 @@ router.get('/add',async (ctx)=>{
     //console.log(data);
     //渲染页面并传数据
     //console.log(tools.cateToList(data));
-    // 循环数据到页面上
-    await ctx.render('admin/article/add',{
-        //这里要处理以下数据 让顶级分类包含子分类
-        list:tools.cateToList(data)
-    });
+// 循环数据到页面上
+await ctx.render('admin/article/add',{
+    //这里要处理以下数据 让顶级分类包含子分类
+    list:tools.cateToList(data)
+});
 });
 
 /**
  * 操作添加内容
  * */
-router.post('/doAdd',upload.single('img_url'),async (ctx)=>{
+router.post('/doAdd',tools.multer().single('img_url'),async (ctx)=>{
     //获取post传值
     let json = {};
     json.catename = ctx.req.body.catename;
@@ -151,7 +126,7 @@ router.get('/edit',async (ctx)=>{
      * */
 });
 
-router.post('/doEdit',upload.single('img_url'),async (ctx)=>{
+router.post('/doEdit',tools.multer().single('img_url'),async (ctx)=>{
     //获取 post 传值
     let json = {};
 
