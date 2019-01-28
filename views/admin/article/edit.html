@@ -132,6 +132,14 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="col-sm-2 control-label no-padding-right" for="delayTime">延迟时间:</label>
+
+                                <div class="col-sm-10">
+                                    <input type="number" id="delayTime" name="delayTime" step="0.2" value="{{list.delayTime}}" class="col-xs-10 col-sm-5">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label no-padding-right" for="description" >状态:</label>
 
                                 <div class="col-sm-10" >
@@ -140,6 +148,18 @@
                                     &nbsp;
                                     <label for="status2">未审核:</label>
                                     <input type="radio" name="status" id="status2" value="0" {{if list.status==='0'}} checked {{/if}} >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label no-padding-right">显示状态:</label>
+
+                                <div class="col-sm-10" >
+                                    <label for="showModel1">显示:</label>
+                                    <input type="radio" name="showModel" id="showModel1" value=true {{if list.showModel===true}} checked {{/if}}>
+                                    &nbsp;
+                                    <label for="showModel2">不显示:</label>
+                                    <input type="radio" name="showModel" id="showModel2" value=false {{if list.showModel===false}} checked  {{/if}}>
                                 </div>
                             </div>
 
