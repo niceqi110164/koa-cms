@@ -394,6 +394,7 @@ header .topmenu .top-data li a.log-top:hover {
 
 .navbar-collapse {
     max-height: none !important;
+    flex-basis: 65% !important;
 }
 
 .vesco-top-nav ul.navbar-nav > li > a.active {
@@ -547,6 +548,9 @@ header .topmenu .top-data li a.log-top:hover {
     }
     .navbar-hidden{
         display: none !important;
+    }
+    .company-name{
+        display: none;
     }
     
     .affix {
