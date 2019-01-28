@@ -65,6 +65,8 @@ router.post('/doAdd',tools.multer().single('img_url'),async (ctx)=>{
     json.description = ctx.req.body.description;
     json.content = ctx.req.body.content;
     json.add_time = tools.getTime();
+    json.delayTime = ctx.req.body.delayTime;
+    json.showModel = ctx.req.body.showModel;
     if(ctx.req.body.is_best){
         json.is_best = ctx.req.body.is_best;
     }else{
