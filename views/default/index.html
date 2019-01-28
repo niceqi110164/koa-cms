@@ -129,7 +129,7 @@
     <div class="container-fluid">
         <div class="row">
             {{each showModelNews}}
-            {{if $value.showModel===true}}
+            {{if $value.showModel}}
             <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
                 <div class="desc-comp-offer-cont">
                     <div class="thumbnail-blogs">
@@ -143,7 +143,7 @@
                     <a href="{{$value.link}}"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
                 </div>
             </div>
-            {{else }}
+            {{else}}
             <div class="col-md-3 col-sm-6  desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
                 <h2>{{$value.title}}</h2>
                 <div class="heading-border-light"></div>
