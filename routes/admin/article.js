@@ -145,6 +145,7 @@ router.post('/doEdit',tools.multer().single('img_url'),async (ctx)=>{
     json.content = ctx.req.body.content;
     json.delayTime = ctx.req.body.delayTime;
     json.showModel = ctx.req.body.showModel =='1';
+
     if(ctx.req.body.is_best){
         json.is_best = ctx.req.body.is_best;
     }else{
@@ -160,6 +161,7 @@ router.post('/doEdit',tools.multer().single('img_url'),async (ctx)=>{
     }else{
         json.is_new = '0';
     }
+
 
     //图片路径
     if(ctx.req.file){
