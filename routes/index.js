@@ -45,22 +45,32 @@ router.get('/', async (ctx) => {
     }
     //模块offer
     let showModelOfferResult = await DB.find('eynetaOffer',{});
-    //模块news
-    let showModelNewsResult = await DB.find('eynetaNews',{});
-    //console.log(showModelResult);
-    // let data = await DB.find('articleCate',{});
-    // console.log(tools.cateToList(data));
-    // // await ctx.render('admin/articleCate/index',{
-    // //     list:tools.cateToList(data)
-    // // });
 
+
+
+
+    //模块news
+    let showModelNewsResult;
+    //在 articleCate 表中查找顶级分类新闻标题下( _id : 5b4dc7b237be91292858ca94 )的二级分类
+    let newsResultTitleList = await DB.find('articleCate',{'pid':'5b4dc7b237be91292858ca94','status':'1'});
+    //console.log(newsResultTitleList);
+    let newsResultTitleListArr = [];
+    for(let item of newsResultTitleList){
+        newsResultTitleListArr.push(item._id.toString())
+    }
+    //利用$in方法获取 二级分类下的所用数据
+    showModelNewsResult = await DB.find('article',{'pid':{$in:newsResultTitleListArr},'status':'1'},{},{
+        // page,
+        // pageSize
+    });
+    let sliceResult = showModelNewsResult.slice(0,4);
 
     //渲染页面
     await ctx.render('default/index', {
         focus: focusResult,
         link:linkResult,
         showModelOffer:showModelOfferResult,
-        showModelNews:showModelNewsResult,
+        showModelNews:sliceResult,
         showModelAbout:showModelAboutResult
     });
 });
