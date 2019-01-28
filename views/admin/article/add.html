@@ -1,11 +1,11 @@
 ﻿{{include 'admin/public/header.html'}}
 
 <!--引入js文件-->
-<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="{{__HOST__}}/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{__HOST__}}/ueditor/ueditor.all.min.js"> </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{__HOST__}}/ueditor/lang/zh-cn/zh-cn.js"></script>
 
 <body>
 <div class="navbar navbar-default" id="navbar">
@@ -127,7 +127,7 @@
                                 <label class="col-sm-2 control-label no-padding-right" for="delayTime">延迟时间:</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" id="delayTime" name="delayTime" step="0.2" placeholder="" class="col-xs-10 col-sm-5">
+                                    <input type="text" id="delayTime" name="delayTime" placeholder="" class="col-xs-10 col-sm-5">
                                 </div>
                             </div>
 
