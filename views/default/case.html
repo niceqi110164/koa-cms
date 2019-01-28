@@ -29,51 +29,65 @@
     <!--/end container-->
 </div>
 
-<div class="main">
-    <div class="main-content">
 
-        <section class="wrapper-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-
+<!--====================================================
+                       OFFER
+======================================================-->
+<section id="comp-offer">
+    <div class="container-fluid">
+        <div class="row">
+            {{each caseList}}
+            {{if $value.showModel}}
+            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
+                <div class="desc-comp-offer-cont">
+                    <div class="thumbnail-blogs">
+                        <div class="caption">
+                            <i class="fa fa-chain"></i>
+                        </div>
+                        <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
+                    <h3>{{$value.title}}</h3>
+                    <div class="desc">{{@$value.content}} </div>
+                    <a href="{{$value.link}}"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
                 </div>
             </div>
-        </section>
-    </div>
-</div>
-
-<div id="header_title-wrapper">
-    <div class="header_title clear">
-        <p>
-            {{each list}}
-                <a {{if cid==$value._id}} class="active"{{/if}} href="/case?cid={{@$value._id}}">{{$value.title}}</a>
+            {{/if}}
             {{/each}}
-        </p>
+        </div>
     </div>
-</div>
+</section>
 
 
-<div id="main_wrapper">
+<!--<div id="header_title-wrapper">-->
+    <!--<div class="header_title clear">-->
+        <!--<p>-->
+            <!--{{each list}}-->
+                <!--<a {{if cid==$value._id}} class="active"{{/if}} href="/case?cid={{@$value._id}}">{{$value.title}}</a>-->
+            <!--{{/each}}-->
+        <!--</p>-->
+    <!--</div>-->
+<!--</div>-->
 
-    <div class="main">
-        <ul class="clear">
-            {{each caseList}}
-                <li>
-                    <a href="/content/{{@$value._id}}">
-                        <img src="{{$value.img_url}}"/>
-                    </a>
 
-                    <p>{{$value.title}}</p>
-                </li>
-            {{/each}}
-        </ul>
+<!--<div id="main_wrapper">-->
 
-        <div id="page" class="pagination"></div>
-    </div>
+    <!--<div class="main">-->
+        <!--<ul class="clear">-->
+            <!--{{each caseList}}-->
+                <!--<li>-->
+                    <!--<a href="/content/{{@$value._id}}">-->
+                        <!--<img src="{{$value.img_url}}"/>-->
+                    <!--</a>-->
 
-</div>
+                    <!--<p>{{$value.title}}</p>-->
+                <!--</li>-->
+            <!--{{/each}}-->
+        <!--</ul>-->
+
+        <!--<div id="page" class="pagination"></div>-->
+    <!--</div>-->
+
+<!--</div>-->
 
 <!--====================================================
                       FOOTER
