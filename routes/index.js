@@ -43,11 +43,35 @@ router.get('/', async (ctx) => {
     if(showModelAboutResult.length>0){
         showModelAboutResult = showModelAboutResult[0]
     }
+
+
+
     //模块offer
-    let showModelOfferResult = await DB.find('eynetaOffer',{});
-
-
-
+    let showModelOfferResult;
+    // 顶级分类 : 成功案例 '_id':'5b4dc4bc5c73de0ef8b694e6'
+    // 利用等级分类的'_id' 查找二级分类的'pid' = '_id'
+    let caseResult = await DB.find('articleCate',{'pid':'5c4ea11c73d9df58d81b854e','status': '1'},{},{
+        sort: {'sort': 1}
+    });
+    //获取page , pageSize
+    let page = ctx.query.page || 1;
+    let pageSize = 3;
+    let caseResultArrList = "";
+    if(caseResult.length>0){
+        //利用$in 方法 获取到所用二级分类下的所用子分类文章
+        let caseResultArr = [];
+        for(let item of caseResult){
+            caseResultArr.push(item._id.toString())
+        }
+        //获取所有二级分类下的文章
+        caseResultArrList = await DB.find('article',{'pid':{$in:caseResultArr},'status': '1'},{},{
+            page:page,
+            pageSize:pageSize
+        });
+    }else{//没有二级分类
+        caseResultArrList = await DB.find('article',{'pid':'5c4ea11c73d9df58d81b854e'})
+    }
+    showModelOfferResult = caseResultArrList.slice(0,4)
 
     //模块news
     let showModelNewsResult;
@@ -154,39 +178,31 @@ router.get('/news', async (ctx) => {
 
 router.get('/case', async (ctx) => {
     //获取等级分类
-    let id = '5b4dc4bc5c73de0ef8b694e6';
+    let id = '5c4ea11c73d9df58d81b854e';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
     //console.log(result);
 
     // 顶级分类 : 成功案例 '_id':'5b4dc4bc5c73de0ef8b694e6'
     // 利用等级分类的'_id' 查找二级分类的'pid' = '_id'
-    let caseResult = await DB.find('articleCate',{'pid':'5b4dc4bc5c73de0ef8b694e6','status': '1'},{},{
+    let caseResult = await DB.find('articleCate',{'pid':'5c4ea11c73d9df58d81b854e','status': '1'},{},{
         sort: {'sort': 1}
     });
+
 
     //获取page , pageSize
     let page = ctx.query.page || 1;
     let pageSize = 3;
 
     //获取分类cid
-    let cid = ctx.query.cid;
     let caseResultArrList = "";
     let caseResultArrNum = ""; //总数量
-    if(cid){ // 如果cid存在 就查询 pid=cid 的分类数据
-        caseResultArrList = await DB.find('article',{'pid':cid},{},{
-            page:page,
-            pageSize:pageSize
-        });
-        caseResultArrNum = await DB.count('article',{'pid':cid});
-        //console.log(caseResultArrNum);
-    }else{ //如果cid 不存在就 就查询所有资费类文章
-
+    let offerResult
+    if(caseResult.length>0){
         //利用$in 方法 获取到所用二级分类下的所用子分类文章
         let caseResultArr = [];
         for(let item of caseResult){
             caseResultArr.push(item._id.toString())
         }
-
         //获取所有二级分类下的文章
         caseResultArrList = await DB.find('article',{'pid':{$in:caseResultArr},'status': '1'},{},{
             page:page,
@@ -194,14 +210,49 @@ router.get('/case', async (ctx) => {
         });
         caseResultArrNum = await DB.count('article',{'pid':{$in:caseResultArr},'status': '1'});
         //console.log(caseResultArrNum);
+    }else{
+        caseResultArrList = await DB.find('article',{'pid':'5c4ea11c73d9df58d81b854e'})
     }
+    //console.log(caseResultArrList);
+
+    //获取page , pageSize
+    // let page = ctx.query.page || 1;
+    // let pageSize = 3;
+    //
+    // //获取分类cid
+    // //let cid = ctx.query.cid;
+    // let caseResultArrList = "";
+    // let caseResultArrNum = ""; //总数量
+    // if(cid){ // 如果cid存在 就查询 pid=cid 的分类数据
+    //     caseResultArrList = await DB.find('article',{'pid':cid},{},{
+    //         page:page,
+    //         pageSize:pageSize
+    //     });
+    //     caseResultArrNum = await DB.count('article',{'pid':cid});
+    //     //console.log(caseResultArrNum);
+    // }else{ //如果cid 不存在就 就查询所有资费类文章
+    //
+    //     //利用$in 方法 获取到所用二级分类下的所用子分类文章
+    //     let caseResultArr = [];
+    //     for(let item of caseResult){
+    //         caseResultArr.push(item._id.toString())
+    //     }
+    //
+    //     //获取所有二级分类下的文章
+    //     caseResultArrList = await DB.find('article',{'pid':{$in:caseResultArr},'status': '1'},{},{
+    //         page:page,
+    //         pageSize:pageSize
+    //     });
+    //     caseResultArrNum = await DB.count('article',{'pid':{$in:caseResultArr},'status': '1'});
+    //     //console.log(caseResultArrNum);
+    // }
     //console.log(caseResultArr);
     //console.log(caseResultArrList);
     await ctx.render('default/case',{
         result:result[0],
         list:caseResult,
         caseList:caseResultArrList,
-        cid:cid,
+        //cid:cid,
         totalPages:Math.ceil(caseResultArrNum/pageSize),
         page:page
     });
@@ -311,17 +362,19 @@ router.get('/about', async (ctx) => {
     //查询关于我们分类
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
 
-    //利用二级分类 pid 等于 顶级分类(关于我们)的 _id 来查找二级分类
-    let aboutResult = await DB.find('articleCate',{'pid':id});
-
-    //公司简介
-    let comResult = await DB.find('articleCate',{'_id':DB.getObjectID(aboutResult[0]._id)});
+    // //利用二级分类 pid 等于 顶级分类(关于我们)的 _id 来查找二级分类
+    // let aboutResult = await DB.find('articleCate',{'pid':id});
+    //
+    // //公司简介
+    // let comResult = await DB.find('articleCate',{'_id':DB.getObjectID(aboutResult[0]._id)});
 
     await ctx.render('default/about',{
         result:result[0], //获取顶级分类
-        aboutResult:aboutResult,
-        comResult:comResult //公司介绍
+        //aboutResult:aboutResult,
+        //comResult:comResult //公司介绍
     });
+
+
 });
 /**
  * 联系我们
