@@ -5,6 +5,8 @@
 ======================================================-->
 <head>
     {{include "default/public/header-template.html"}}
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="default/css/news.css">
 </head>
 <body>
 <!--====================================================
@@ -27,37 +29,64 @@
     </div><!--/end container-->
 </div>
 
-<div id="header_title-wrapper">
-    <a href="#" id="aaaa"></a>   <!--锚点-->
-    <div class="header_title clear">
-        <p>
-            {{each titleList}}
-
-                <a {{if cid==$value._id}} class="active" {{/if}}  href="/news?cid={{@$value._id}}#aaaa">{{$value.title}}</a>
-            {{/each}}
-        </p>
-    </div>
-
-</div>
-
-<div id="main_wrapper">
-
-    <div class="main">
-        <ul class="clear">
+<!--====================================================
+                       NEWS
+======================================================-->
+<section id="comp-offer">
+    <div class="container-fluid">
+        <div class="row">
             {{each list}}
-                <li>
-                    <a href="/content/{{@$value._id}}"><img src="{{$value.img_url}}"/></a>
-                    <p>{{$value.description}}</p>
-                </li>
+            {{if $value.showModel}}
+            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
+                <div class="desc-comp-offer-cont">
+                    <div class="thumbnail-blogs">
+                        <div class="caption">
+                            <i class="fa fa-chain"></i>
+                        </div>
+                        <img src="{{$value.img_url}}" class="img-fluid" alt="...">
+                    </div>
+                    <h3>{{$value.title}}</h3>
+                    <div class="desc" style="height: 84px;">{{@$value.content}} </div>
+                    <a href="{{$value.link}}"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
+                </div>
+            </div>
+            {{/if}}
             {{/each}}
-        </ul>
-
-        <!--分页-->
-        <div id="page" class="pagination" style="margin-top:40px;"></div>
+        </div>
     </div>
+</section>
+
+<!--<div id="header_title-wrapper">-->
+    <!--<a href="#" id="aaaa"></a>   &lt;!&ndash;锚点&ndash;&gt;-->
+    <!--<div class="header_title clear">-->
+        <!--<p>-->
+            <!--{{each titleList}}-->
+
+                <!--<a {{if cid==$value._id}} class="active" {{/if}}  href="/news?cid={{@$value._id}}#aaaa">{{$value.title}}</a>-->
+            <!--{{/each}}-->
+        <!--</p>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--<div id="main_wrapper">-->
+
+    <!--<div class="main">-->
+        <!--<ul class="clear">-->
+            <!--{{each list}}-->
+                <!--<li>-->
+                    <!--<a href="/content/{{@$value._id}}"><img src="{{$value.img_url}}"/></a>-->
+                    <!--<p>{{$value.description}}</p>-->
+                <!--</li>-->
+            <!--{{/each}}-->
+        <!--</ul>-->
+
+        <!--&lt;!&ndash;分页&ndash;&gt;-->
+        <!--<div id="page" class="pagination" style="margin-top:40px;"></div>-->
+    <!--</div>-->
 
 
-</div>
+<!--</div>-->
 
 
 <!--====================================================
@@ -80,24 +109,24 @@
 <script src="/default/js/jquery-2.0.3.min.js"></script>
 <!--注意放在jq下面-->
 <script src="/default/js/jqpaginator.js"></script>
-<script>
-    $('#page').jqPaginator({
-        totalPages: {{totalPages}},
-    visiblePages: 10,
-        currentPage: {{page}},
-    onPageChange: function (num, type) {
-        // $('#text').html('当前第' + num + '页');
-        if(type =="change"){
-            {{if cid}}
-            location.href = '/news?cid={{cid}}&page='+num;
-            {{else}}
-            location.href = '/news?page='+num;
-            {{/if}}
+<!--<script>-->
+    <!--$('#page').jqPaginator({-->
+        <!--totalPages: {{totalPages}},-->
+    <!--visiblePages: 10,-->
+        <!--currentPage: {{page}},-->
+    <!--onPageChange: function (num, type) {-->
+        <!--// $('#text').html('当前第' + num + '页');-->
+        <!--if(type =="change"){-->
+            <!--{{if cid}}-->
+            <!--location.href = '/news?cid={{cid}}&page='+num;-->
+            <!--{{else}}-->
+            <!--location.href = '/news?page='+num;-->
+            <!--{{/if}}-->
 
-            }
-            }
-        });
-</script>
+            <!--}-->
+            <!--}-->
+        <!--});-->
+<!--</script>-->
 
 </body>
 </html>
