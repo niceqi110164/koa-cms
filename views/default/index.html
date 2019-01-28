@@ -129,7 +129,14 @@
     <div class="container-fluid">
         <div class="row">
             {{each showModelNews}}
-            {{if $value.showModel}}
+            {{if $value.showModel === false }}
+            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
+                <h2>{{$value.title}}</h2>
+                <div class="heading-border-light"></div>
+                <button class="btn btn-general btn-green" role="button">See Curren Offers</button>
+                <button class="btn btn-general btn-white" role="button">Contact Us Today</button>
+            </div>
+            {{else}}
             <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
                 <div class="desc-comp-offer-cont">
                     <div class="thumbnail-blogs">
@@ -142,12 +149,6 @@
                     <div class="desc">{{@$value.content}} </div>
                     <a href="{{$value.link}}"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
                 </div>
-            </div>
-            {{else}}
-            <div class="col-md-3 col-sm-6  desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
-                <h2>{{$value.title}}</h2>
-                <div class="heading-border-light"></div>
-                <button class="btn btn-general btn-green" role="button">See More</button>
             </div>
             {{/if}}
             {{/each}}
