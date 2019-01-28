@@ -143,6 +143,8 @@ router.post('/doEdit',tools.multer().single('img_url'),async (ctx)=>{
     json.keywords = ctx.req.body.keywords;
     json.description = ctx.req.body.description;
     json.content = ctx.req.body.content;
+    json.delayTime = ctx.req.body.delayTime;
+    json.showModel = ctx.req.body.showModel =='1';
     if(ctx.req.body.is_best){
         json.is_best = ctx.req.body.is_best;
     }else{
