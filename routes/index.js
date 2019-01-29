@@ -262,13 +262,13 @@ router.get('/case', async (ctx) => {
  * 服务
  * */
 router.get('/service', async (ctx) => {
-    let id = '5c4fbb50a69c360c9aa34a87';
+    let id = '5c4fba87f27f7d445c4fd896';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
     //console.log(result);
     // 顶级分类 : 开发服务---'_id':'5b4dc68537be91292858ca8d'
     // 利用等级分类的'_id' 查找二级分类的'pid' = '_id'
 
-    let serviceResult = await DB.find('articleCate', {'pid': '5c4fbb50a69c360c9aa34a87', 'status': '1'}, {}, {
+    let serviceResult = await DB.find('articleCate', {'pid': '5b4dc68537be91292858ca8d', 'status': '1'}, {}, {
         sort: {'sort': 1}
     });
 
@@ -314,14 +314,16 @@ router.get('/service', async (ctx) => {
 /**
  * 详情页面路由
  * */
-router.get('/content/:id',async (ctx)=>{
+router.get('/news-details/:id',async (ctx)=>{
     //获取动态路由的传值
     //console.log(ctx.params);//{ id: '123456' }
     let id = ctx.params.id;
-
-    let contentResult = await DB.find('article',{'_id':DB.getObjectID(id)});
-
-
+    //查找当前_id:id的数据
+    let newsDetailsResult = await DB.find('article',{'_id':DB.getObjectID(id)});
+    if(newsDetailsResult.length>0){
+        newsDetailsResult = newsDetailsResult[0]
+    }
+    //console.log(newsDetailsResult);
     /**
      1.获取文章详情的分类信息
 
@@ -330,26 +332,8 @@ router.get('/content/:id',async (ctx)=>{
 
      3.把 url 赋值给 pathname
      * */
-    let cateNameResult = await DB.find('articleCate',{'_id':DB.getObjectID(contentResult[0].pid)});
-    //console.log(cateNameResult);
-    let navResult="";
-    if(cateNameResult[0].pid !=='0'){ //有子分类
-        let parentCateResult = await DB.find('articleCate',{'_id':DB.getObjectID(cateNameResult[0].pid)});
-
-        navResult = await DB.find('nav',{$or:[{'title':parentCateResult[0].title},{'title':cateNameResult[0].title}]});
-    }else{
-        navResult = await DB.find('nav',{'title':cateNameResult[0].title});
-    }
-
-
-    if(navResult.length>0){ //如果navResult 有数据说明找到
-        ctx.state.pathname = navResult[0].url;
-    }else{ //没有找到
-        ctx.state.pathname='/';
-    }
-
-    await ctx.render('default/content',{
-        list:contentResult[0]
+    await ctx.render('default/news-details',{
+        list:newsDetailsResult
     })
 });
 
