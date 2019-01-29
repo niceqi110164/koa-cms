@@ -312,7 +312,24 @@ router.get('/service', async (ctx) => {
 });
 
 /**
- * 详情页面路由
+ * case详情路由
+ * */
+router.get('/offer-details/:id', async (ctx)=>{
+    //获取动态路由的传值
+    //console.log(ctx.params);//{ id: '123456' }
+    let id = ctx.params.id;
+    let offerResult = await DB.find('article',{'_id':DB.getObjectID(id)});
+    if(offerResult.length>0){
+        offerResult = offerResult[0]
+    }
+    console.log(offerResult);
+    await ctx.render('default/case-details',{
+        list:offerResult
+    })
+})
+
+/**
+ * news详情页面路由
  * */
 router.get('/news-details/:id',async (ctx)=>{
     //获取动态路由的传值
