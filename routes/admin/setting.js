@@ -22,21 +22,12 @@ router.get('/', async (ctx) => {
 
 router.post('/doEdit', tools.multer().fields([{ name: 'site_logo', maxCount: 1 }, { name: 'siteFooter_logo', maxCount: 1 }]), async (ctx)=>{
     //console.log(ctx.req.files);
-    //files是一个对象 每个属性为一个数组
-
-    // console.log(ctx.req.files.site_logo[0].filename);
-    // console.log(ctx.req.files.siteFooter_logo[0].filename);
-    // ctx.body = {
-    //     filename: ctx.req.file ? ctx.req.file.filename : '',
-    //     body: ctx.req.body
-    // };
-
     let json = {};
     json.site_title = ctx.req.body.site_title;
     json.site_keywords = ctx.req.body.site_keywords;
     json.site_description = ctx.req.body.site_description;
     json.site_record = ctx.req.body.site_record;
-    json.site_qq = ctx.req.body.site_qq;
+    json.site_email = ctx.req.body.site_email;
     json.site_tel = ctx.req.body.site_tel;
     json.site_address = ctx.req.body.site_address;
     json.site_status = ctx.req.body.site_status;
