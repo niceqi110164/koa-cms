@@ -322,7 +322,7 @@ router.get('/offer-details/:id', async (ctx)=>{
     if(offerResult.length>0){
         offerResult = offerResult[0]
     }
-    console.log(offerResult);
+    //console.log(offerResult);
     await ctx.render('default/case-details',{
         list:offerResult
     })
