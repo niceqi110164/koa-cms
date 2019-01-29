@@ -74,8 +74,8 @@
             <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
                 <h2>{{$value.title}}</h2>
                 <div class="heading-border-light"></div>
-                <button class="btn btn-general btn-green" role="button">See Curren Offers</button>
-                <button class="btn btn-general btn-white" role="button">Contact Us Today</button>
+                <a href="/case" class="btn btn-general btn-green" role="button">See Curren Offers</a>
+                <a href="/contact" class="btn btn-general btn-white" role="button">Contact Us Today</a>
             </div>
             {{else}}
             <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
@@ -147,7 +147,7 @@
             <div class="col-md-3 col-sm-6  desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
                 <h2>{{$value.title}}</h2>
                 <div class="heading-border-light"></div>
-                <a href="{{$value.link}}" class="btn btn-general btn-green" role="button">See More</a>
+                <a href="/news" class="btn btn-general btn-green" role="button">See More</a>
             </div>
             {{/if}}
             {{/each}}
