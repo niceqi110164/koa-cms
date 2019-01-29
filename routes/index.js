@@ -262,13 +262,13 @@ router.get('/case', async (ctx) => {
  * 服务
  * */
 router.get('/service', async (ctx) => {
-    let id = '5c4fba87f27f7d445c4fd896';
+    let id = '5c4fbb50a69c360c9aa34a87';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
     //console.log(result);
     // 顶级分类 : 开发服务---'_id':'5b4dc68537be91292858ca8d'
     // 利用等级分类的'_id' 查找二级分类的'pid' = '_id'
 
-    let serviceResult = await DB.find('articleCate', {'pid': '5b4dc68537be91292858ca8d', 'status': '1'}, {}, {
+    let serviceResult = await DB.find('articleCate', {'pid': id, 'status': '1'}, {}, {
         sort: {'sort': 1}
     });
 
