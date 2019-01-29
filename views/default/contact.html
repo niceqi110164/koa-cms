@@ -34,22 +34,17 @@
                 <div class="contact-p1-cont">
                     <h3>Contact our experienced team</h3>
                     <div class="heading-border-light"></div>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                        distribution of letters, as opposed to using 'Content here, content here', making it look like
-                        readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                        their default model texty.</p>
+                    <p>{{setting.site_description}}</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="contact-p1-cont2">
-                    <address class="address-details-f">
-                        25, Dist town Street, Logn <br>
-                        California, US <br>
-                        Phone: 800 123 3456 <br>
-                        Fax: 800 123 3456 <br>
-                        Email: <a href="mailto:info@Businessbox.com" class="">info@Businessbox.com</a>
+                    <address class="address-details-f contact-add">
+                        <p>25, Dist town Street, Logn, California, US</p>
+                        <p>Phone: {{setting.site_tel}}</p>
+                        <p>Email: <a href="mailto:info@Businessbox.com" class="">{{setting.email}}</a></p>
                     </address>
+                    <!--
                     <ul class="list-inline social-icon-f top-data">
                         <li>
                             <a href="#" target="_empty">
@@ -70,6 +65,7 @@
                             </a>
                         </li>
                     </ul>
+                    -->
                 </div>
             </div>
         </div>
