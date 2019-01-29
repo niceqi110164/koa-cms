@@ -1925,6 +1925,12 @@ address.address-details-f a {
 address.address-details-f p{
     color:#ccc;
 }
+.contact-add p{
+    color:#41464b !important;
+}
+.contact-add p a{
+    color:#41464b !important;
+}
 
 .social-icon-f li {
     float: left;
