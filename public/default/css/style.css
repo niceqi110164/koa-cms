@@ -1803,7 +1803,13 @@ input[type=password] {
                     news
 ======================================================*/
 .desc{
-    height: 84px;
+    /*多行文本省略号*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    height: 76px;
+    padding:0 10px;
 }
 
 
