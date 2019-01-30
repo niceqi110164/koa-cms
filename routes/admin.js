@@ -66,6 +66,7 @@ let focus = require('./admin/focus');
 let link = require('./admin/link');
 let nav = require('./admin/nav');
 let siteInfo = require('./admin/siteInfo');
+let homeInfo = require('./admin/homeInfo');
 let setting = require('./admin/setting');
 
 
@@ -78,6 +79,7 @@ router.use('/focus',focus);
 router.use('/link',link);
 router.use('/nav',nav);
 router.use('/siteInfo',siteInfo);
+router.use('/homeInfo',homeInfo);
 router.use('/setting',setting);
 
 // 配置后台图片上传
