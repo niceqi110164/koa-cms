@@ -87,8 +87,8 @@
                         <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
                     <h3>{{$value.title}}</h3>
-                    <div class="desc">{{@$value.content}} </div>
-                    <a href="/case"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
+                    <div class="desc">{{$value.description}} </div>
+                    <a href="/case"><i class="fa fa-arrow-circle-o-right"></i> See More</a>
                 </div>
             </div>
             {{/if}}
@@ -139,8 +139,8 @@
                         <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
                     <h3>{{$value.title}}</h3>
-                    <div class="desc">{{@$value.content}} </div>
-                    <a href="/news"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
+                    <div class="desc">{{$value.description}} </div>
+                    <a href="/news"><i class="fa fa-arrow-circle-o-right"></i> See More</a>
                 </div>
             </div>
             {{else}}
