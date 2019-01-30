@@ -47,7 +47,7 @@
                         <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
                     <h3>{{$value.title}}</h3>
-                    <div class="desc">{{@$value.content}} </div>
+                    <div class="desc">{{$value.description}} </div>
                     <a href="/offer-details/{{@$value._id}}"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
                 </div>
             </div>
@@ -56,38 +56,6 @@
         </div>
     </div>
 </section>
-
-
-<!--<div id="header_title-wrapper">-->
-    <!--<div class="header_title clear">-->
-        <!--<p>-->
-            <!--{{each list}}-->
-                <!--<a {{if cid==$value._id}} class="active"{{/if}} href="/case?cid={{@$value._id}}">{{$value.title}}</a>-->
-            <!--{{/each}}-->
-        <!--</p>-->
-    <!--</div>-->
-<!--</div>-->
-
-
-<!--<div id="main_wrapper">-->
-
-    <!--<div class="main">-->
-        <!--<ul class="clear">-->
-            <!--{{each caseList}}-->
-                <!--<li>-->
-                    <!--<a href="/content/{{@$value._id}}">-->
-                        <!--<img src="{{$value.img_url}}"/>-->
-                    <!--</a>-->
-
-                    <!--<p>{{$value.title}}</p>-->
-                <!--</li>-->
-            <!--{{/each}}-->
-        <!--</ul>-->
-
-        <!--<div id="page" class="pagination"></div>-->
-    <!--</div>-->
-
-<!--</div>-->
 
 <!--====================================================
                       FOOTER
