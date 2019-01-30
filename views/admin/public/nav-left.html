@@ -201,6 +201,26 @@
         </li>
 
 
+        <li {{if G.url[1]==="homeInfo"}} class="active open" {{/if}}>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-flag"></i>
+                <span class="menu-text">
+					Home信息
+					<!--<span class="badge badge-primary ">5</span>-->
+				</span>
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li {{if !G.url[2]}} class="active" {{/if}}>
+                    <a href="{{__HOST__}}/admin/homeInfo">
+                        <i class="icon-double-angle-right"></i>
+                        Home信息列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <li {{if G.url[1]==="siteInfo"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-flag"></i>
