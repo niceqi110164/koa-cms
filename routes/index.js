@@ -15,9 +15,11 @@ router.use(async (ctx, next) => {
     let navResult = await DB.find('nav', {'status': '1'}, {}, {
         sort: {'sort': 1}
     });
+    //homeInfo
+    let homeInfo = await DB.find('homeInfo',{});
+    ctx.state.homeInfo = homeInfo[0];
 
     let setting = await DB.find('setting',{});
-    //console.log(setting);
     ctx.state.setting = setting[0];
 
     //配置全局的nav
