@@ -46,7 +46,7 @@
                         <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
                     <h3>{{$value.title}}</h3>
-                    <div class="desc">{{@$value.content}} </div>
+                    <div class="desc">{{$value.description}} </div>
                     <a href="/news-details/{{@$value._id}}"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
                 </div>
             </div>
@@ -55,39 +55,6 @@
         </div>
     </div>
 </section>
-
-<!--<div id="header_title-wrapper">-->
-    <!--<a href="#" id="aaaa"></a>   &lt;!&ndash;锚点&ndash;&gt;-->
-    <!--<div class="header_title clear">-->
-        <!--<p>-->
-            <!--{{each titleList}}-->
-
-                <!--<a {{if cid==$value._id}} class="active" {{/if}}  href="/news?cid={{@$value._id}}#aaaa">{{$value.title}}</a>-->
-            <!--{{/each}}-->
-        <!--</p>-->
-    <!--</div>-->
-
-<!--</div>-->
-
-<!--<div id="main_wrapper">-->
-
-    <!--<div class="main">-->
-        <!--<ul class="clear">-->
-            <!--{{each list}}-->
-                <!--<li>-->
-                    <!--<a href="/content/{{@$value._id}}"><img src="{{$value.img_url}}"/></a>-->
-                    <!--<p>{{$value.description}}</p>-->
-                <!--</li>-->
-            <!--{{/each}}-->
-        <!--</ul>-->
-
-        <!--&lt;!&ndash;分页&ndash;&gt;-->
-        <!--<div id="page" class="pagination" style="margin-top:40px;"></div>-->
-    <!--</div>-->
-
-
-<!--</div>-->
-
 
 <!--====================================================
                       FOOTER
