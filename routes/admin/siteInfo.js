@@ -34,6 +34,7 @@ router.post('/doEdit', async (ctx)=>{
     let json = {};
     json.id = ctx.request.body.id;
     json.title = ctx.request.body.title;
+    json.linkTitle = ctx.request.body.linkTitle;
     json.content = ctx.request.body.content;
 
     let updateResult = await DB.update("eynetaAbout",{'_id':DB.getObjectID(json.id)},json);
