@@ -81,13 +81,15 @@
                 <div class="desc-comp-offer-cont">
                     <div class="thumbnail-blogs">
                         <div class="caption">
-                            <i class="fa fa-chain"></i>
+                            <a href="/offer-details/{{@$value._id}}">
+                                <i class="fa fa-chain"></i>
+                            </a>
                         </div>
                         <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
                     <h3>{{$value.title}}</h3>
                     <div class="desc">{{$value.description}} </div>
-                    <a href="/case"><i class="fa fa-arrow-circle-o-right"></i> 链接地址</a>
+                    <a href="/offer-details/{{@$value._id}}"><i class="fa fa-arrow-circle-o-right"></i> 链接地址</a>
                 </div>
             </div>
             {{/if}}
@@ -133,13 +135,15 @@
                 <div class="desc-comp-offer-cont">
                     <div class="thumbnail-blogs">
                         <div class="caption">
-                            <i class="fa fa-chain"></i>
+                            <a href="/news-details/{{@$value._id}}">
+                                <i class="fa fa-chain"></i>
+                            </a>
                         </div>
                         <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
                     <h3>{{$value.title}}</h3>
                     <div class="desc">{{$value.description}} </div>
-                    <a href="/news"><i class="fa fa-arrow-circle-o-right"></i> 链接地址</a>
+                    <a href="/news-details/{{@$value._id}}"><i class="fa fa-arrow-circle-o-right"></i> 链接地址</a>
                 </div>
             </div>
             {{else}}
