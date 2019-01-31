@@ -1380,6 +1380,16 @@ input[type=password] {
     z-index: 2;
 }
 
+.caption>a{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    color: #fff;
+}
+
 .caption i {
     margin: 30% 4px;
     border: 2px solid #fff;
