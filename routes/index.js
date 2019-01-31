@@ -18,7 +18,10 @@ router.use(async (ctx, next) => {
     //homeInfo
     let homeInfo = await DB.find('homeInfo',{});
     ctx.state.homeInfo = homeInfo[0];
-
+    //轮播内容
+    let focusContent = await DB.find('focus',{});
+    ctx.state.focusContent = focusContent;
+    //网站设置内容
     let setting = await DB.find('setting',{});
     ctx.state.setting = setting[0];
 
@@ -45,8 +48,6 @@ router.get('/', async (ctx) => {
     if(showModelAboutResult.length>0){
         showModelAboutResult = showModelAboutResult[0]
     }
-
-
 
     //模块offer
     let showModelOfferResult;
