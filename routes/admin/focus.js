@@ -43,17 +43,18 @@ router.get('/add', async (ctx) => {
 router.post('/doAdd',tools.multer().single('pic'), async (ctx) => {
     // 在模板中上传文件件  必须加上 enctype="multipart/form-data"
 
-    // console.log(ctx.req);
+    //console.log(ctx.req.body);
     // ctx.body = {
     //     filename:ctx.req.file?ctx.req.file.filename:'',
     //     body:ctx.req.body
     // };
     let json = {};
-    if(ctx.req.file){
-        json.pic = ctx.req.file.filename;
-    }
+    // if(ctx.req.file){
+    //     json.pic = ctx.req.file.filename;
+    // }
     json.title = ctx.req.body.title;
-    json.url = ctx.req.body.url;
+    json.content = ctx.req.body.content;
+    // json.url = ctx.req.body.url;
     json.status = ctx.req.body.status;
     json.add_time = tools.getTime();
 
@@ -90,22 +91,23 @@ router.post('/doEdit',tools.multer().single('pic'),async (ctx)=>{
     //     filename: ctx.req.file ? ctx.req.file.filename : '',
     //     body: ctx.req.body
     // };
-    //console.log(ctx.req);
+    //console.log(ctx.req.body);
     //获取 post 传值
     let json = {};
     //想要获取prevPage需要前页面传递
     let prevPage = ctx.req.body.prevPage || '';
 
     json.id = ctx.req.body.id;
-    json.url = ctx.req.body.url;
+    // json.url = ctx.req.body.url;
     json.title = ctx.req.body.title;
+    json.content = ctx.req.body.content;
     json.status = ctx.req.body.status;
     json.add_time = tools.getTime();
 
     //图片路径
-    if(ctx.req.file){
-        json.pic = ctx.req.file.filename;
-    }
+    // if(ctx.req.file){
+    //     json.pic = ctx.req.file.filename;
+    // }
     //console.log(json);
 
     let result = await DB.update('focus',{'_id':DB.getObjectID(json.id)},json);
