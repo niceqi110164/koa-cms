@@ -57,41 +57,25 @@
     </div>
 </section>
 
+<!--分页-->
+<ul id="page" class="pagination justify-content-end" style="margin:30px 0;"></ul>
+
 <!--====================================================
                       FOOTER
 ======================================================-->
 {{include "default/public/footer-template.html"}}
-
-<!--Global JavaScript -->
-<!--<script src="default/js/popper/popper.min.js"></script>-->
-<!--<script src="default/js/bootstrap/bootstrap.min.js"></script>-->
-<!--<script src="default/js/wow/wow.min.js"></script>-->
-<!--<script src="default/js/owl-carousel/owl.carousel.min.js"></script>-->
-
-<!--&lt;!&ndash; Plugin JavaScript &ndash;&gt;-->
-<!--<script src="default/js/jquery-easing/jquery.easing.min.js"></script>-->
-<!--<script src="default/js/custom.js"></script>-->
-
-<!--&lt;!&ndash;注意放在jq下面&ndash;&gt;-->
-<!--<script src="/default/js/jqpaginator.js"></script>-->
-<!--<script>-->
-
-    <!--$('#page').jqPaginator({-->
-        <!--totalPages: {{totalPages}},-->
-        <!--visiblePages: 10,-->
-        <!--currentPage: {{page}},-->
-        <!--onPageChange: function (num, type) {-->
-           <!--// $('#text').html('当前第' + num + '页');-->
-          <!--console.log(num,type);-->
-          <!--if(type=='change'){-->
-              <!--{{if cid}} //如果存在cid 页面跳转之后cid ,page作为参数传递-->
-                <!--location.href = '/case?cid={{cid}}&page='+num;-->
-              <!--{{else}} //如果不存在cid 页面跳转page作为参数传递-->
-                <!--location.href = '/case?page='+num;-->
-              <!--{{/if}}-->
-          <!--}-->
-        <!--}-->
-    <!--});-->
-<!--</script>-->
+<!--分页-->
+<script>
+    $('#page').jqPaginator({
+        totalPages: {{totalPages}},
+        visiblePages: 10,
+        currentPage: {{page}},
+        onPageChange: function (num, type) {
+          if(type=='change'){
+             location.href = '/case?page='+num;
+          }
+        }
+    })
+</script>
 </body>
 </html>
