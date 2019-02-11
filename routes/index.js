@@ -111,95 +111,58 @@ router.get('/news', async (ctx) => {
 
     //查找顶级分类下的文章
     let parentNewsResult = await DB.find('article',{'pid':id,'status':'1'});
-    //console.log(parentNewsResult);
 
     //在 articleCate 表中查找顶级分类新闻标题下( _id : 5b4dc7b237be91292858ca94 )的二级分类
-    let newsResultTitleList = await DB.find('articleCate',{'pid':'5b4dc7b237be91292858ca94','status':'1'});
-    //console.log(newsResultTitleList);
+    let newsResultTitleList = await DB.find('articleCate',{'pid':id,'status':'1'});
 
-
-
-    //获取cid
-    //let cid = ctx.query.cid;
+    //获取
     let newsResultList = '';
     let newsResultNum = '';
     let pageSize = 4;
     let page = ctx.query.page || 1;
-
-    //console.log(cid);
-    //
-    // if(cid){ //如果存在cid 就查找 pid = cid 的数据
-    //     newsResultList = await DB.find('article',{'pid':cid,'status':'1'},{},{
-    //         page,
-    //         pageSize
-    //     });
-    //     newsResultNum = await DB.count('article',{'pid':cid,'status':'1'});
-    //     //console.log(newsResultList);
-    // }else{ //如果不存在cid 就查找 全部的数据
-    //     let newsResultTitleListArr = [];
-    //     for(let item of newsResultTitleList){
-    //         newsResultTitleListArr.push(item._id.toString())
-    //     }
-    //     //利用$in方法获取 二级分类下的所用数据
-    //     newsResultList = await DB.find('article',{'pid':{$in:newsResultTitleListArr},'status':'1'},{},{
-    //         page,
-    //         pageSize
-    //     });
-    //     newsResultNum = await DB.count('article',{'pid':{$in:newsResultTitleListArr},'status':'1'},);
-    //     //console.log(newsResultList);
-    // }
-
-    // newsResultList.push(parentNewsResult[0]); // 合并所有数据
-    // console.log(newsResultList);
 
     let newsResultTitleListArr = [];
     for(let item of newsResultTitleList){
         newsResultTitleListArr.push(item._id.toString())
     }
     //利用$in方法获取 二级分类下的所用数据
-    newsResultList = await DB.find('article',{'pid':{$in:newsResultTitleListArr},'status':'1'},{},{
-        // page,
-        // pageSize
-    });
-    //newsResultNum = await DB.count('article',{'pid':{$in:newsResultTitleListArr},'status':'1'},);
-    //console.log(newsResultList);
+    newsResultList = await DB.find('article',
+                                    {'pid':{$in:newsResultTitleListArr},'status':'1','showModel':true},
+                                    {},
+                                    { page, pageSize }
+    );
+    //获取数据总条数
+    newsResultNum = await DB.count('article',{'pid':{$in:newsResultTitleListArr},'status':'1','showModel':true});
 
-    //console.log(newsResultList);
+    //渲染
     await ctx.render('default/news',{
         result:result[0],//获取顶级分类
         //titleList:newsResultTitleList, //二级分类标题
         list:newsResultList,
         //cid:cid, //这里要把cid 传到页面上,要不然在页面上没法判断
-        //totalPages:Math.ceil(newsResultNum/pageSize),
-        //page:page
+        totalPages:Math.ceil(newsResultNum/pageSize),
+        page:page
     });
 });
 
 /**
  * 案例
  * */
-
 router.get('/case', async (ctx) => {
-    //获取等级分类
+    // 顶级分类 : 成功案例 '_id':'5b4dc4bc5c73de0ef8b694e6'
     let id = '5c4ea11c73d9df58d81b854e';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
-    //console.log(result);
 
-    // 顶级分类 : 成功案例 '_id':'5b4dc4bc5c73de0ef8b694e6'
     // 利用等级分类的'_id' 查找二级分类的'pid' = '_id'
-    let caseResult = await DB.find('articleCate',{'pid':'5c4ea11c73d9df58d81b854e','status': '1'},{},{
+    let caseResult = await DB.find('articleCate',{'pid':id,'status': '1'},{},{
         sort: {'sort': 1}
     });
 
-
     //获取page , pageSize
     let page = ctx.query.page || 1;
-    let pageSize = 3;
-
-    //获取分类cid
+    let pageSize = 4;
     let caseResultArrList = "";
     let caseResultArrNum = ""; //总数量
-    let offerResult
     if(caseResult.length>0){
         //利用$in 方法 获取到所用二级分类下的所用子分类文章
         let caseResultArr = [];
@@ -207,56 +170,22 @@ router.get('/case', async (ctx) => {
             caseResultArr.push(item._id.toString())
         }
         //获取所有二级分类下的文章
-        caseResultArrList = await DB.find('article',{'pid':{$in:caseResultArr},'status': '1'},{},{
+        caseResultArrList = await DB.find('article',{'pid':{$in:caseResultArr},'status': '1','showModel':true},{},{
             page:page,
             pageSize:pageSize
         });
-        caseResultArrNum = await DB.count('article',{'pid':{$in:caseResultArr},'status': '1'});
-        //console.log(caseResultArrNum);
+        caseResultArrNum = await DB.count('article',{'pid':{$in:caseResultArr},'status': '1','showModel':true});
     }else{
-        caseResultArrList = await DB.find('article',{'pid':'5c4ea11c73d9df58d81b854e'})
+        caseResultArrList = await DB.find('article',{'pid':id,'showModel':true},{},{page, pageSize });
+        //获取数据总条数
+        caseResultArrNum = await DB.count('article',{'pid':id,'status':'1','showModel':true});
     }
-    //console.log(caseResultArrList);
 
-    //获取page , pageSize
-    // let page = ctx.query.page || 1;
-    // let pageSize = 3;
-    //
-    // //获取分类cid
-    // //let cid = ctx.query.cid;
-    // let caseResultArrList = "";
-    // let caseResultArrNum = ""; //总数量
-    // if(cid){ // 如果cid存在 就查询 pid=cid 的分类数据
-    //     caseResultArrList = await DB.find('article',{'pid':cid},{},{
-    //         page:page,
-    //         pageSize:pageSize
-    //     });
-    //     caseResultArrNum = await DB.count('article',{'pid':cid});
-    //     //console.log(caseResultArrNum);
-    // }else{ //如果cid 不存在就 就查询所有资费类文章
-    //
-    //     //利用$in 方法 获取到所用二级分类下的所用子分类文章
-    //     let caseResultArr = [];
-    //     for(let item of caseResult){
-    //         caseResultArr.push(item._id.toString())
-    //     }
-    //
-    //     //获取所有二级分类下的文章
-    //     caseResultArrList = await DB.find('article',{'pid':{$in:caseResultArr},'status': '1'},{},{
-    //         page:page,
-    //         pageSize:pageSize
-    //     });
-    //     caseResultArrNum = await DB.count('article',{'pid':{$in:caseResultArr},'status': '1'});
-    //     //console.log(caseResultArrNum);
-    // }
-    //console.log(caseResultArr);
-    //console.log(caseResultArrList);
     await ctx.render('default/case',{
         result:result[0],
         list:caseResult,
         caseList:caseResultArrList,
-        //cid:cid,
-        totalPages:Math.ceil(caseResultArrNum/pageSize),
+        totalPages:Math.ceil(caseResultArrNum/pageSize),//向上取整来显示总页数
         page:page
     });
 });
@@ -329,7 +258,7 @@ router.get('/offer-details/:id', async (ctx)=>{
     await ctx.render('default/case-details',{
         list:offerResult
     })
-})
+});
 
 /**
  * news详情页面路由
