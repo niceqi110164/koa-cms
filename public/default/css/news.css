@@ -323,8 +323,9 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     margin-bottom: 20px;
     box-shadow: none;
     border:1px solid #ddd;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+}
+.single-news-p1 .desc-comp-offer-cont:hover{
+	border-bottom:6px solid #2196f3;
 }
 
 @media (min-width: 1600px) {
