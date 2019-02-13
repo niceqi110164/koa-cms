@@ -328,6 +328,33 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	border-bottom:6px solid #2196f3;
 }
 
+/**change style 2019/2/13 */
+.single-news-p1 .current-case{
+	margin-top:0;
+}
+
+.single-news-p1 .small-case-box{
+	margin-bottom:40px;
+}
+
+.single-news-p1 .right-side-sn-cont img.img-case-fluid{
+	display: block;
+	width:140px;
+	height:auto;
+}
+
+.single-case-p1-cont{
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.single-news-p1 .single-case-desc{
+	padding:0;
+}
+
+.single-news-p1 h3{
+	font-size: 26px;
+}
+
 @media (min-width: 1600px) {
 	.single-news-p1 .single-news-desc .bg-light-gray p{
 		font-size: 16px;
