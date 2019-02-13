@@ -35,17 +35,21 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	      $('.navbar-collapse').collapse('hide');
 	    });
 
-	    $("a.smooth-scrolls").click(function (event) {
-
-	        // event.preventDefault();
-
-	        // get/return id like #about, #work, #team and etc
-	        var section = $(this).attr("href");
-
-	        $('html, body').animate({
-	            scrollTop: ($(section).offset().top - 2)
-	        }, 1000, "easeInOutExpo");
-	    });
+        // back to top
+        $("a.smooth-scrolls").click(function(){
+            $('body,html').animate({
+                scrollTop:0
+            },1000, "easeInOutExpo");
+            return false;
+        });
+	    // $("a.smooth-scrolls").click(function (event) {
+	    //     // event.preventDefault();
+	    //     // get/return id like #about, #work, #team and etc
+	    //     var section = $(this).attr("href");
+	    //     $('html, body').animate({
+	    //         scrollTop: ($(section).offset().top - 2)
+	    //     }, 1000, "easeInOutExpo");
+	    // });
 
 	    // Activate scrollspy to add active class to navbar items on scroll
 	    $('body').scrollspy({
