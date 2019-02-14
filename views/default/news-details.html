@@ -41,10 +41,10 @@
                         <img src="{{__HOST__}}/{{list.img_url}}" alt="" class="img-fluid">
                     </div>
                     <div class="single-news-desc">
-                        <h3>Reduction of AC energy wastage through clamp meter</h3>
+                        <h3>{{list.keywords}}</h3>
                         <ul class="list-inline">
-                            <li>Posted: <span class="text-theme-colored2"> 9/9/2018</span></li>
-                            <li>By: <span class="text-theme-colored2">Admin</span></li>
+                            <li>Posted: <span class="text-theme-colored2"> {{list.add_time | dateFormat}}</span></li>
+                            <li>By: <span class="text-theme-colored2">{{list.author}}</span></li>
                             <li><i class="fa fa-comments-o"></i> 1 comments</li>
                         </ul>
                         <hr>
@@ -60,42 +60,17 @@
             <div class="col-md-4">
                 <!-- -->
                 <div class="small-news-box">
-                    <a href="">
+                    {{each smallList}}
+                    <a href="{{__HOST__}}/news-details/{{@$value._id}}">
                         <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-6.jpg" alt="" class="img-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <img src="{{__HOST__}}/{{$value.img_url}}" alt="" class="img-fluid">
+                            <p>{{$value.description}}</p>
                             <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
+                                <fa class="fa-watch"> {{$value.add_time | dateFormat}}</fa>
                             </small>
                         </div>
                     </a>
-                    <a href="">
-                        <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-9.jpg" alt="" class="img-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
-                            </small>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-7.jpg" alt="" class="img-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
-                            </small>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-3.jpg" alt="" class="img-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
-                            </small>
-                        </div>
-                    </a>
+                    {{/each}}
                 </div>
 
                 <div class="ad-box-sn">
