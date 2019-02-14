@@ -34,45 +34,22 @@
     <div class="container">
         <div class="row">
             <!--top details-->
+            {{each smallList}}
             <div class="col-md-4">
                 <div class="small-case-box">
-                    <a href="">
+                    <a href="{{__HOST__}}/offer-details/{{@$value._id}}">
                         <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-6.jpg" alt="" class="img-fluid img-case-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <img src="{{__HOST__}}/{{$value.img_url}}" alt="" class="img-fluid img-case-fluid">
+                            <p>{{$value.description}}</p>
                             <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
+                                <fa class="fa-watch">  {{$value.add_time | dateFormat}}</fa>
                             </small>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="small-case-box">
-                    <a href="">
-                        <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-9.jpg" alt="" class="img-fluid img-case-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
-                            </small>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="small-case-box">
-                    <a href="">
-                        <div class="right-side-sn-cont">
-                            <img src="{{__HOST__}}/default/images/news/news-7.jpg" alt="" class="img-fluid img-case-fluid">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <small>
-                                <fa class="fa-watch"> Jan 1, 2019</fa>
-                            </small>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            {{/each}}
+
             <!-- left details -->
             <div class="col-md-8">
                 <div class="single-news-p1-cont single-case-p1-cont">
@@ -80,10 +57,10 @@
                         <img src="{{__HOST__}}/{{list.img_url}}" alt="" class="img-fluid">
                     </div>
                     <div class="single-news-desc single-case-desc">
-                        <h3>逸立达电梯 - 辽宁逸立达电梯有限公司</h3>
+                        <h3>{{list.keywords}}</h3>
                         <ul class="list-inline">
-                            <li>Posted: <span class="text-theme-colored2"> 9/9/2018</span></li>
-                            <li>By: <span class="text-theme-colored2">Admin</span></li>
+                            <li>Posted: <span class="text-theme-colored2">{{list.add_time | dateFormat}}</span></li>
+                            <li>By: <span class="text-theme-colored2">{{list.author}}</span></li>
                             <li><i class="fa fa-comments-o"></i> 1 comments</li>
                         </ul>
                         <hr>
