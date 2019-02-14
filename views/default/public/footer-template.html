@@ -7,8 +7,6 @@
                     <div class="col-md-4 col-sm-6 ">
                         <div><img src="{{__HOST__}}/{{setting.siteFooter_logo}}" alt="" class="img-fluid"></div>
                         <ul class="list-unstyled comp-desc-f">
-                            <!--<li><p>Businessbox is a corporate business theme. You can customize what ever you think to-->
-                                <!--make your website much better from your great ideas. </p></li>-->
                             <li><p>{{setting.site_description}} </p></li>
                         </ul>
                         <br>
@@ -24,50 +22,22 @@
                                 <a href="{{$value.url}}">{{$value.title}} <i class="fa fa-angle-right"></i></a>
                             </li>
                             {{/each}}
-                            <!--<li><a href="about.html">About us</a><i class="fa fa-angle-right"></i></li>-->
-                            <!--<li><a href="project.html">Project</a><i class="fa fa-angle-right"></i></li>-->
-                            <!--<li><a href="careers.html">Career</a><i class="fa fa-angle-right"></i></li>-->
-                            <!--<li><a href="faq.html">FAQ</a><i class="fa fa-angle-right"></i></li>-->
-                            <!--<li><a href="contact.html">Contact us</a><i class="fa fa-angle-right"></i></li>-->
                         </ul>
                     </div>
-                    <!-- End Recent list -->
-
-                    <!-- Recent Blog Entries
-                    <div class="col-md-3 col-sm-6 ">
-                        <div class="heading-footer"><h2>Recent Post Entries</h2></div>
-                        <ul class="list-unstyled thumb-list">
-                            <li>
-                                <div class="overflow-h">
-                                    <a href="#">Praesent ut consectetur diam.</a>
-                                    <small>02 OCT, 2017</small>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="overflow-h">
-                                    <a href="#">Maecenas pharetra tellus et fringilla.</a>
-                                    <small>02 OCT, 2017</small>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>-->
-                    <!-- End Recent Blog Entries -->
 
                     <!-- Latest Tweets -->
                     <div class="col-md-4 col-sm-6">
-                        <div class="heading-footer"><h2>Get In Touch</h2></div>
+                        <div class="heading-footer"><h2>联系方式</h2></div>
                         <address class="address-details-f">
-                            <p>25, Dist town Street, Logn California, US </p>
-                            <p>Phone: {{setting.site_tel}}</p>
-                            <!--Fax: 800 123 3456 <br>-->
-                            <p>Email: <a href="mailto:info@Businessbox.com" class="">info@EYNETA.com</a></p>
+                            <p><i class="fa fa-map-marker"></i> 地址 : {{setting.site_address}}</p>
+                            <p><i class="fa fa-phone"></i> 联系电话 : {{setting.site_tel}}</p>
+                            <p><i class="fa fa-envelope"></i> 邮箱 : {{setting.site_email}}</p>
+                            <!--
+                            <div style="display: flex;flex-flow: nowrap;justify-content:flex-start;align-items:baseline;">
+                                <p style="width:50px;">地址:</p>
+                                <p>{{setting.site_address}}</p>
+                            </div>-->
                         </address>
-                        <!--
-                        <ul class="list-inline social-icon-f top-data">
-                            <li><a href="#" target="_empty"><i class="fa top-social fa-facebook"></i></a></li>
-                            <li><a href="#" target="_empty"><i class="fa top-social fa-twitter"></i></a></li>
-                            <li><a href="#" target="_empty"><i class="fa top-social fa-google-plus"></i></a></li>
-                        </ul>-->
                     </div>
                     <!-- End Latest Tweets -->
                 </div>
