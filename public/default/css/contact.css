@@ -3,27 +3,107 @@ author: Boostraptheme
 author URL: https://boostraptheme.com
 License: Creative Commons Attribution 4.0 Unported
 License URL: https://creativecommons.org/licenses/by/4.0/
-*/ 
+*/
 
 /*====================================================
                    CONTACT-P1
 ======================================================*/
-#contact-p1{
-	padding: 100px 0 50px 0;
+#contact-p1 {
+    padding: 100px 0 50px 0;
 }
 
-#contact-p1 .contact-p1-cont p{
-	padding-right: 20px;
-	font-size: 15px;
+#contact-p1 .contact-p1-title{
+    text-align: center;
+    padding-bottom:30px;
+}
+
+#contact-p1 .contact-p1-title h3{
+    font-size: 35px;
+    line-height: 45px;
+}
+
+#contact-p1 .contact-p1-title .sub-title{
+    color:#b5b5b5;
+}
+
+.contact-p1-header .big-title{
+    font-size: 20px;
+    line-height: 1.3;
+    padding-bottom: 5px;
+    color: #fff;
+}
+.contact-p1-content{
+    margin-top:10px;
+    color:#fff;
+}
+.contact-p1-header .eng-title{
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+.contact-add{
+    position: relative;
+    opacity: 1;
+    padding:60px;
+    height: 236px;
+    transform: translateY(0px)
+}
+.add-style{
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: -1;
+}
+.add-style:before{
+    content: "";
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #9fcdff;
+}
+.col-md-4:nth-child(1) .contact-add .add-style:before{
+    width: 150%;
+    right:0;
+    background: #abced8;
+}
+.col-md-4:nth-child(2) .contact-add .add-style:before{
+    background: #e4d2d8;
+}
+.col-md-4:nth-child(3) .contact-add .add-style:before{
+    width: 150%;
+    left:0;
+    background: #f4f4f4;
+}
+
+/*email*/
+.col-md-4:nth-child(3) .contact-p1-header .big-title,
+.col-md-4:nth-child(3) .contact-p1-content{
+    color:#aaa;
+}
+.col-md-4:nth-child(3) .contact-p1-header .eng-title{
+    color: #ccc;
+}
+.col-md-4:nth-child(3) .contact-add{
+    padding:60px 90px;
+}
+
+#contact-p1 .contact-p1-cont p {
+    padding-right: 20px;
+    font-size: 15px;
 }
 
 #contact-p1 .contact-p1-cont2 address,
-#contact-p1 .contact-p1-cont2 address a{
-	color:#666;
+#contact-p1 .contact-p1-cont2 address a {
+    color: #666;
 }
 
 @media (min-width: 1600px) {
-    #contact-p1 .contact-p1-cont p{
+    #contact-p1 .contact-p1-cont p {
         padding-right: 20px;
         font-size: 16px;
     }
@@ -32,55 +112,81 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 /*====================================================
                    CONTACT-P2
 ======================================================*/
- 
 
-    #contact-p2 .sub-but {
-      margin: 0;
-      text-align: center;
+#contact-p2 .sub-but {
+    margin: 0;
+    text-align: center;
+}
+
+.con-form input {
+    border-color: #ccc;
+    border-radius: 0;
+    color: #717171;
+}
+
+.con-form textarea {
+    width: 100%;
+    height: 200px;
+    margin: 30px 0;
+    border-color: #ccc;
+    border-radius: 0;
+    color: #717171;
+}
+
+.map-responsive {
+    margin-top: 70px;
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+@media (max-width: 767px) {
+    
+    #contact-p1 {
+        padding: 40px 0;
     }
-
-    .con-form input {
-        border-color: #ccc;
-        border-radius: 0;
-        color: #717171;
+    
+    .add-style{
+        display: none;
     }
-
+    .contact-p1-cont2{
+        border-radius:10px;
+        margin-bottom:15px;
+    }
+    .col-md-4:nth-child(1) .contact-p1-cont2{
+        background: #abced8;
+    }
+    .col-md-4:nth-child(2) .contact-p1-cont2{
+        background: #e4d2d8;
+    }
+    .col-md-4:nth-child(3) .contact-p1-cont2{
+        background: #f4f4f4;
+    }
+    
+    .contact-add{
+        padding:30px !important;
+        height:190px !important;
+    }
+    
+    #contact-p2 .con-form input {
+        margin-bottom: 30px;
+    }
+    
     .con-form textarea {
-        width: 100%; 
+        width: 100%;
         height: 200px;
-        margin:30px 0;
+        margin: 10px 0 30px 0;
         border-color: #ccc;
         border-radius: 0;
         color: #717171;
     }
-
-
-    .map-responsive{
-    	margin-top: 70px;
-        overflow:hidden;
-        padding-bottom:50%;
-        position:relative;
-        height:0;
-    }
-
-    .map-responsive iframe{
-        left:0;
-        top:0;
-        height:100%;
-        width:100%;
-        position:absolute;
-    }
-
-    @media(max-width: 767px){
-        #contact-p2 .con-form input{
-            margin-bottom: 30px;
-        }
-        .con-form textarea {
-            width: 100%; 
-            height: 200px;
-            margin:10px 0 30px 0;
-            border-color: #ccc;
-            border-radius: 0;
-            color: #717171;
-        }
-    }
+}
