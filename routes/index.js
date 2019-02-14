@@ -276,7 +276,11 @@ router.get('/news-details/:id',async (ctx)=>{
     if(newsDetailsResult.length>0){
         newsDetailsResult = newsDetailsResult[0]
     }
-    //console.log(newsDetailsResult);
+    //小图表数据
+    let smallNewsResult = await DB.find('article',{'pid':newsDetailsResult.pid,'status':'1','showModel':true});
+    //随机获取数据
+    let smallShuffleResult = tools.getRandomArrayElements(smallNewsResult,4);
+    //console.log(smallShuffleResult);
     /**
      1.获取文章详情的分类信息
 
@@ -286,7 +290,8 @@ router.get('/news-details/:id',async (ctx)=>{
      3.把 url 赋值给 pathname
      * */
     await ctx.render('default/news-details',{
-        list:newsDetailsResult
+        list:newsDetailsResult,
+        smallList:smallShuffleResult
     })
 });
 
