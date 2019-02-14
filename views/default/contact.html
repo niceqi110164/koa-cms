@@ -30,6 +30,7 @@
 <section id="contact-p1" class="contact-p1">
     <div class="container">
         <div class="row">
+            <!--
             <div class="col-md-8">
                 <div class="contact-p1-cont">
                     <h3>Contact our experienced team</h3>
@@ -41,59 +42,64 @@
                 <div class="contact-p1-cont2">
                     <address class="address-details-f contact-add">
                         <p>25, Dist town Street, Logn, California, US</p>
-                        <p>Phone: {{setting.site_tel}}</p>
-                        <p>Email: <a href="mailto:info@Businessbox.com" class="">{{setting.site_email}}</a></p>
+                        <p>联系电话: {{setting.site_tel}}</p>
+                        <p>邮箱/Email: <a href="mailto:info@Businessbox.com" class="">{{setting.site_email}}</a></p>
                     </address>
-                    <!--
-                    <ul class="list-inline social-icon-f top-data">
-                        <li>
-                            <a href="#" target="_empty">
-                                <i class="fa top-social fa-facebook"
-                                   style="height: 35px; width:35px; line-height: 35px;"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_empty">
-                                <i class="fa top-social fa-twitter"
-                                   style="height: 35px; width:35px; line-height: 35px;"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_empty">
-                                <i class="fa top-social fa-google-plus"
-                                   style="height: 35px; width:35px; line-height: 35px;"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    -->
+                </div>
+            </div>-->
+            <div class="col-12">
+                <div class="contact-p1-title">
+                    <h3>联系方式</h3>
+                    <div class="sub-title">Contact information</div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="background: transparent;overflow: hidden;border-radius: 10px;">
+            <div class="col-md-4">
+                <div class="contact-p1-cont2">
+                    <address class="address-details-f contact-add">
+                        <span class="add-style" style="transform: skew(-24deg);"></span>
+                        <div class="contact-p1-header">
+                            <div class="our-phones big-title">我们的电话</div>
+                            <div class="eng-title">Our phones</div>
+                        </div>
+                        <div class="contact-p1-content">
+                            联系电话: {{setting.site_tel}}
+                        </div>
+                    </address>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-p1-cont2">
+                    <address class="address-details-f contact-add">
+                        <span class="add-style" style="transform: skew(-24deg);"></span>
+                        <div class="contact-p1-header">
+                            <div class="our-address big-title">我们的地址</div>
+                            <div class="eng-title">Our address</div>
+                        </div>
+                        <div class="contact-p1-content">
+                            {{setting.site_address}}
+                        </div>
+                    </address>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-p1-cont2">
+                    <address class="address-details-f contact-add">
+                        <span class="add-style" style="transform: skew(-24deg);"></span>
+                        <div class="contact-p1-header email-title">
+                            <div class="our-email big-title ">我们的邮箱</div>
+                            <div class="eng-title">Our E-mail</div>
+                        </div>
+                        <div class="contact-p1-content">
+                            邮箱/Email: {{setting.site_email}}
+                        </div>
+                    </address>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!--====================================================
-                        CONTACT-P2 
-======================================================
-<service class="contact-p2" id="contact-p2">
-    <div class="container">
-        <div class="row con-form">
-            <div class="col-md-4">
-                <input type="text" name="full-name" placeholder="Full Name" class="form-control">
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="email" placeholder="Email Id" class="form-control">
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="subject" placeholder="Subject" class="form-control">
-            </div>
-            <div class="col-md-12"><textarea name="" id=""></textarea></div>
-            <div class="col-md-12 sub-but">
-                <button class="btn btn-general btn-white" role="button">Send</button>
-            </div>
-        </div>
-    </div>
-</service>-->
 
 <!--====================================================
                        MAP
@@ -105,8 +111,8 @@
                 src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569"
                 width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-    </div>-->
-</section>
+    </div>
+</section>-->
 
 <!--====================================================
                       FOOTER
