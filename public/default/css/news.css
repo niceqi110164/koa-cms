@@ -358,7 +358,8 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	padding:0;
 }
 
-.single-news-p1 .single-case-desc>h3{
+.single-news-p1 .single-case-desc>h3,
+.single-news-p1 .single-news-desc>h3{
 	font-size: 26px;
 }
 
