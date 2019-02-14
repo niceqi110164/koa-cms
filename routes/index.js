@@ -254,9 +254,13 @@ router.get('/offer-details/:id', async (ctx)=>{
     if(offerResult.length>0){
         offerResult = offerResult[0]
     }
-    //console.log(offerResult);
+    //小图表数据
+    let smallOfferResult = await DB.find('article',{'pid':offerResult.pid,'status':'1','showModel':true})
+    //随机获取数据
+    let smallShuffleResult = tools.getRandomArrayElements(smallOfferResult,3);
     await ctx.render('default/case-details',{
-        list:offerResult
+        list:offerResult,
+        smallList:smallShuffleResult
     })
 });
 
