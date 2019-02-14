@@ -45,6 +45,18 @@ let tools = {
             }
         }
         return firstArr;
+    },
+    /*随机获取数组中的元素*/
+    getRandomArrayElements(arr,count){
+        let len = arr.length;
+        while (len-- >=count ) {
+            let index = Math.floor(Math.random()*len);//随机下标
+            let temp = arr[index];
+            arr[index] = arr[len];
+            arr[len] = temp;
+        }
+        let newArr = arr.slice(0,count);
+        return newArr
     }
 };
 
