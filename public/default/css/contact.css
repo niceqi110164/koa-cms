@@ -89,7 +89,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     color: #ccc;
 }
 .col-md-4:nth-child(3) .contact-add{
-    padding:60px 90px;
+    padding:60px 50px 60px 90px;
 }
 
 #contact-p1 .contact-p1-cont p {
