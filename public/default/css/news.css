@@ -300,9 +300,16 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 } 
 
 .single-news-p1 .right-side-sn-cont p {
-	font-size: 15px;
+	font-size: 13px;
 	color:#666;
 	margin-bottom: 0;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	height: 50px;
+	font-weight: 400;
+	padding-top:5px;
 }
 
 .single-news-p1 .right-side-sn-cont small {
@@ -351,9 +358,11 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	padding:0;
 }
 
-.single-news-p1 h3{
+.single-news-p1 .single-case-desc>h3{
 	font-size: 26px;
 }
+
+
 
 @media (min-width: 1600px) {
 	.single-news-p1 .single-news-desc .bg-light-gray p{
