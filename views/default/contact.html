@@ -3,7 +3,8 @@
 <head>
     {{include "default/public/header-template.html"}}
     <!-- Core Stylesheets -->
-    <link rel="stylesheet" href="default/css/contact.css">
+    <link rel="stylesheet" href="{{__HOST__}}/default/css/contact.css">
+
 </head>
 <body id="page-top">
 <!--====================================================
@@ -113,6 +114,56 @@
         </div>
     </div>
 </section>-->
+<section>
+    <div id="container" tabindex="0"></div>
+</section>
+<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+<script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.12&key=bb9c6cdaa305665da3d902d860348ed7"></script>
+<script src="https://webapi.amap.com/ui/1.0/main.js"></script>
+<script>
+
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center: [122.13423, 41.653225],
+        zoom: 13
+    });
+
+    AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function () {//异步同时加载多个插件
+        var toolbar = new AMap.ToolBar();
+        var driving = new AMap.Scale();//比例尺
+        map.addControl(toolbar);
+        map.addControl(driving);
+    });
+
+    AMapUI.loadUI(['overlay/SimpleInfoWindow'], function (SimpleInfoWindow) {
+        var marker = new AMap.Marker({
+            map: map,
+            zIndex: 9999999,
+            position: [122.133695, 41.654743]
+        });
+
+        var infoWindow = new SimpleInfoWindow({
+            infoTitle: '<strong>辽宁逸立达电梯有限</strong>',
+            infoBody: `<p class="my-desc">地址:辽宁逸立达电梯有限公司办公室地址位于，辽宁省锦州市黑山县庞河经济开发区黑山第三初级中学东侧</p><p class="my-desc">联系电话:2222222</p><p class="my-desc">邮箱:2222222</p>`,
+
+            //基点指向marker的头部位置
+            offset: new AMap.Pixel(0, -31)
+        });
+
+        function openInfoWin() {
+            infoWindow.open(map, marker.getPosition());
+        }
+
+        //marker 点击时打开
+        AMap.event.addListener(marker, 'click', function () {
+            openInfoWin();
+        });
+        openInfoWin();
+    })
+
+</script>
+<script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
 
 <!--====================================================
                       FOOTER
