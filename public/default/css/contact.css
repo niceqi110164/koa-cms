@@ -190,3 +190,27 @@ License URL: https://creativecommons.org/licenses/by/4.0/
         color: #717171;
     }
 }
+
+/*====================================================
+                   map
+======================================================*/
+
+#container{
+    width: 100%;
+    height: 600px;
+    margin: 0px;
+}
+
+p.my-desc {
+    /*margin: 5px 0;*/
+    /*line-height: 150%;*/
+    font-size: 13px;
+    color:#000;
+}
+
+.amap-info{
+    width:290px !important;
+}
+
+
+
