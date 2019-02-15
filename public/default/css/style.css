@@ -1989,13 +1989,15 @@ address.address-details-f p{
 }
 
 .btn-back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 22px;
-    padding: 3px 15px;
-    border-radius: 0;
-    display: none;
+    position: fixed ;
+    bottom: 20px ;
+    right: 20px ;
+    font-size: 22px !important;
+    padding: 3px 15px !important;
+    border-radius: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    display: none ;
 }
 
 @media (min-width: 1600px) {
