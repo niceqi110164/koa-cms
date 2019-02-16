@@ -31,7 +31,6 @@
         <h1 class="wow fadeInUp" data-wow-delay="0.1s">{{result.keywords}}</h1>
         <p>{{result.description}}</p>
     </div>
-    <!--/end container-->
 </div>
 
 <!--====================================================
@@ -42,23 +41,13 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="about-p1-cont">
-                    <h1>Business world best platform </h1>
-                    <p> Our Business operates in more than two countries across five continents, with a mission 'To
-                        improve the quality of life of the communities we serve globally, through long-term stakeholder
-                        value creation based on Leadership with Trust' typesetting, remaining essentially unchanged.</p>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                        distribution of letters, as opposed to using 'Content here, content here', making it look like
-                        readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                        their default model text, and a search for 'lorem ipsum' will uncover many web sites still in
-                        their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-                        purpose. </p>
+                    <h1>{{list.aboutP1Title}} </h1>
+                    <p> {{list.aboutP1Content}} </p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="about-p1-img">
-                    <img src="default/images/ipad-tablet.png" class="img-fluid wow fadeInUp" data-wow-delay="0.1s"
-                         alt="...">
+                    <img src="{{__HOST__}}/{{list.aboutP1Img_url}}" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="...">
                 </div>
             </div>
         </div>
@@ -72,33 +61,26 @@
     <div class="container-fluid">
         <div class="row">
             <div class="about-p2-heading">
-                <h1 class="cl-white">global leader in technology services</h1>
+                <h1 class="cl-white">{{list.aboutP2Title}}</h1>
                 <div class="heading-border-light bg-white"></div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="about-p2-cont cl-white">
-                    <img src="default/images/news/news-5.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s"
-                         alt="...">
+                    <img src="{{__HOST__}}/{{list.aboutP2Img_url}}" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="...">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="about-p2-cont cl-white wow fadeInUp" data-wow-delay="0.3s">
-                    <h5>WEB &amp; INTERACTIVE DESIGN</h5>
-                    <p class="cl-white">The most impressive websites and app experiences are rooted in smart design,
-                        embody clear vision, and are backed by the right technology. The point of using Lorem Ipsum is
-                        that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,
-                        content here', making it look like readable English.</p>
+                    <h5>{{list.aboutP2Content1SubTitle}}</h5>
+                    <p class="cl-white">{{list.aboutP2Content1}}</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="about-p2-cont cl-white wow fadeInUp" data-wow-delay="0.5s">
-                    <h5>BRANDING &amp; STRATEGY</h5>
-                    <p class="cl-white">It is a long established fact that a reader will be distracted by the readable
-                        content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                        more-or-less normal distribution of letters, as opposed to using 'Content here, content here',
-                        making it look like readable English.</p>
+                    <h5>{{list.aboutP2Content2SubTitle}}</h5>
+                    <p class="cl-white">{{list.aboutP2Content2}}</p>
                 </div>
             </div>
         </div>
@@ -109,55 +91,18 @@
                      ABOUT-P3
 ======================================================-->
 <section id="story" class="about-p3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="story-desc">
-                    <h3>Environmental and Experience</h3>
-                    <div class="heading-border-light"></div>
-                    <p>Number one in our priority list is the success of our students, alumni and their employers. We
-                        work hard in the name of the success of our alumni – being among the best and holding the high
-                        employment rate. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                        their default model text, and a search for 'lorem ipsum' will uncover many web sites still in
-                        their infancy. </p>
-                    <p> Various versions have evolved over the years, sometimes will uncover many web sites still in
-                        their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-                        purpose.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="story-himg">
-                    <img src="default/images/img/image-3.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s"
-                         alt="">
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container ">
         <div class="row">
             <div class="col-md-6 ">
                 <div class="story-himg story-himg-middle-u">
-                    <img src="default/images/img/image-2.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s"
-                         alt="">
+                    <img src="{{__HOST__}}/{{list.aboutP3Img_url1}}" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="story-desc story-desc-middle ">
-                    <h3>Information Architecture</h3>
+                    <h3>{{list.aboutP3Content1SubTitle}}</h3>
                     <div class="heading-border-light"></div>
-                    <p>Number one in our priority list is the success of our students, alumni and their employers. We
-                        work hard in the name of the success of our alumni – being among the best and holding the high
-                        employment rate. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                        their default model text, and a search for 'lorem ipsum' will uncover many web sites still in
-                        their infancy. </p>
-                    <p> Various versions have evolved over the years, sometimes will uncover many web sites still in
-                        their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-                        purpose.</p>
-                </div>
-            </div>
-            <div class="col-md-6 ">
-                <div class="story-himg story-himg-middle-l">
-                    <img src="default/images/img/image-2.jpg" class="img-fluid" alt="">
+                    <p>{{list.aboutP3Content1}}</p>
                 </div>
             </div>
         </div>
@@ -166,77 +111,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="story-desc">
-                    <h3>Brand Positioning &amp; Publishing</h3>
+                    <h3>{{list.aboutP3Content2SubTitle}}</h3>
                     <div class="heading-border-light"></div>
-                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
-                        text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
-                        versions have evolved over the years, sometimes will uncover many web sites still in their
-                        infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-                        purpose (injected humour and the like).</p>
+                    <p>{{list.aboutP3Content2}}</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="story-himg">
-                    <img src="default/images/img/image-1.jpg" class="img-fluid wow fadeInUp" data-wow-delay="0.1s"
-                         alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!--====================================================
-                       NEWS
-======================================================-->
-<section id="comp-offer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-sm-6  desc-comp-offer wow fadeInUp" data-wow-delay="0.2s">
-                <h2>Latest News</h2>
-                <div class="heading-border-light"></div>
-                <button class="btn btn-general btn-green" role="button">See More</button>
-            </div>
-            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="0.4s">
-                <div class="desc-comp-offer-cont">
-                    <div class="thumbnail-blogs">
-                        <div class="caption">
-                            <i class="fa fa-chain"></i>
-                        </div>
-                        <img src="default/images/news/news-1.jpg" class="img-fluid" alt="...">
-                    </div>
-                    <h3>Pricing Strategies for Product</h3>
-                    <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                        piece of classical Latin literature from Business box. </p>
-                    <a href="#"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="0.6s">
-                <div class="desc-comp-offer-cont">
-                    <div class="thumbnail-blogs">
-                        <div class="caption">
-                            <i class="fa fa-chain"></i>
-                        </div>
-                        <img src="default/images/news/news-9.jpg" class="img-fluid" alt="...">
-                    </div>
-                    <h3>Design Exhibitions of 2017</h3>
-                    <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                        piece of classical Latin literature from Business box. </p>
-                    <a href="#"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="0.8s">
-                <div class="desc-comp-offer-cont">
-                    <div class="thumbnail-blogs">
-                        <div class="caption">
-                            <i class="fa fa-chain"></i>
-                        </div>
-                        <img src="default/images/news/news-12.jpeg" class="img-fluid" alt="...">
-                    </div>
-                    <h3>Exciting New Technologies</h3>
-                    <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                        piece of classical Latin literature from Business box. </p>
-                    <a href="#"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
+                    <img src="{{__HOST__}}/{{list.aboutP3Img_url2}}" class="img-fluid wow fadeInUp" data-wow-delay="0.1s" alt="">
                 </div>
             </div>
         </div>
@@ -249,5 +131,4 @@
 {{include "default/public/footer-template.html"}}
 
 </body>
-
 </html>
