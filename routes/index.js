@@ -303,6 +303,7 @@ router.get('/about', async (ctx) => {
     let id = '5b3c6ca4244a6214a80ebb8b';
     //查询关于我们分类
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
+    let aboutUsResult = await DB.find('aboutUs',{});
 
     // //利用二级分类 pid 等于 顶级分类(关于我们)的 _id 来查找二级分类
     // let aboutResult = await DB.find('articleCate',{'pid':id});
@@ -312,6 +313,7 @@ router.get('/about', async (ctx) => {
 
     await ctx.render('default/about',{
         result:result[0], //获取顶级分类
+        list:aboutUsResult[0]
         //aboutResult:aboutResult,
         //comResult:comResult //公司介绍
     });
