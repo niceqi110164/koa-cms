@@ -1,0 +1,305 @@
+﻿{{include 'admin/public/header.html'}}
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    {{include 'admin/public/nav-top.html'}}
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        {{include 'admin/public/nav-left.html'}}
+
+        <div class="main-content">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <script type="text/javascript">
+                    try {
+                        ace.settings.check('breadcrumbs', 'fixed')
+                    } catch (e) {
+                    }
+                </script>
+
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="active">控制台</li>
+                </ul><!-- .breadcrumb -->
+
+                <div class="nav-search" id="nav-search">
+                    <form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input"
+                                           id="nav-search-input" autocomplete="off"/>
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+                    </form>
+                </div><!-- #nav-search -->
+            </div>
+
+            <div class="page-content">
+
+                <div class="page-header">
+                    <h1>
+                        修改网站信息
+                    </h1>
+                </div><!-- /.page-header -->
+
+                <form class="form-horizontal" action="{{__HOST__}}/admin/aboutUs/doEdit" enctype="multipart/form-data" method="post" role="form">
+                    <!--p1标题-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP1Title">p1标题:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="aboutP1Title" name="aboutP1Title" class="col-xs-10 col-sm-5" value="{{list.aboutP1Title}}" >
+                            <input type="hidden" name="id" value="{{@list._id}}">
+                        </div>
+                    </div>
+                    <!--p1内容-->
+                    <div class="form-group" style="height: 120px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP1Content">内容:</label>
+
+                        <div class="col-sm-10">
+                            <textarea style="height:100px;" class="col-xs-10 col-sm-5" name="aboutP1Content" id="aboutP1Content" cols="60" rows="10">{{list.aboutP1Content}}</textarea>
+                        </div>
+                    </div>
+
+                    <!--p1图片-->
+                    <div class="form-group" style="height:100px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP1Img_url">p1图片:</label>
+
+                        <div class="col-sm-10">
+                            <input type="file" id="aboutP1Img_url" name="aboutP1Img_url" value="{{list.aboutP1Img_url}}" class="col-xs-10 col-sm-5">
+                        </div>
+                        <div class="col-sm-10" style="margin-top:10px;">
+                            <div class="col-xs-10 col-sm-5">
+                                <img  src="{{__HOSt__}}/{{list.aboutP1Img_url}}" width="60" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--p2标题-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP2Title">p2标题:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="aboutP2Title" name="aboutP2Title" class="col-xs-10 col-sm-5" value="{{list.aboutP2Title}}" >
+                        </div>
+                    </div>
+
+                    <!--P2图片-->
+                    <div class="form-group" style="height:100px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP2Img_url">p2图片:</label>
+
+                        <div class="col-sm-10">
+                            <input type="file" id="aboutP2Img_url" name="aboutP2Img_url" value="{{list.aboutP2Img_url}}" class="col-xs-10 col-sm-5">
+                        </div>
+                        <div class="col-sm-10" style="margin-top:10px;">
+                            <div class="col-xs-10 col-sm-5">
+                                <img  src="{{__HOSt__}}/{{list.aboutP2Img_url}}" width="60" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--p2内容1标题-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP2Content1SubTitle">p2内容1标题:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="aboutP2Content1SubTitle" name="aboutP2Content1SubTitle" class="col-xs-10 col-sm-5" value="{{list.aboutP2Content1SubTitle}}" >
+                        </div>
+                    </div>
+
+                    <!--p2内容1-->
+                    <div class="form-group" style="height: 120px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP2Content1">内容:</label>
+
+                        <div class="col-sm-10">
+                            <textarea style="height:100px;" class="col-xs-10 col-sm-5" name="aboutP2Content1" id="aboutP2Content1" cols="60" rows="10">{{list.aboutP2Content1}}</textarea>
+                        </div>
+                    </div>
+
+                    <!--p2内容2标题-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP2Content2SubTitle">p2内容2标题:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="aboutP2Content2SubTitle" name="aboutP2Content2SubTitle" class="col-xs-10 col-sm-5" value="{{list.aboutP2Content2SubTitle}}" >
+                        </div>
+                    </div>
+
+                    <!--p2内容2-->
+                    <div class="form-group" style="height: 120px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP2Content2">内容:</label>
+
+                        <div class="col-sm-10">
+                            <textarea style="height:100px;" class="col-xs-10 col-sm-5" name="aboutP2Content2" id="aboutP2Content2" cols="60" rows="10">{{list.aboutP2Content2}}</textarea>
+                        </div>
+                    </div>
+
+                    <!--p3图片1-->
+                    <div class="form-group" style="height:100px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP3Img_url1">p2图片:</label>
+
+                        <div class="col-sm-10">
+                            <input type="file" id="aboutP3Img_url1" name="aboutP3Img_url1" value="{{list.aboutP3Img_url1}}" class="col-xs-10 col-sm-5">
+                        </div>
+                        <div class="col-sm-10" style="margin-top:10px;">
+                            <div class="col-xs-10 col-sm-5">
+                                <img  src="{{__HOSt__}}/{{list.aboutP3Img_url1}}" width="60" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--p3内容1标题-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP3Content1SubTitle">p3内容1标题:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="aboutP3Content1SubTitle" name="aboutP3Content1SubTitle" class="col-xs-10 col-sm-5" value="{{list.aboutP3Content1SubTitle}}" >
+                        </div>
+                    </div>
+
+                    <!--p3内容1-->
+                    <div class="form-group" style="height: 120px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP3Content1">p3内容1:</label>
+
+                        <div class="col-sm-10">
+                            <textarea style="height:100px;" class="col-xs-10 col-sm-5" name="aboutP3Content1" id="aboutP3Content1" cols="60" rows="10">{{list.aboutP3Content1}}</textarea>
+                        </div>
+                    </div>
+
+                    <!--p3图片2-->
+                    <div class="form-group" style="height:100px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP3Img_url2">p2图片:</label>
+
+                        <div class="col-sm-10">
+                            <input type="file" id="aboutP3Img_url2" name="aboutP3Img_url2" value="{{list.aboutP3Img_url2}}" class="col-xs-10 col-sm-5">
+                        </div>
+                        <div class="col-sm-10" style="margin-top:10px;">
+                            <div class="col-xs-10 col-sm-5">
+                                <img  src="{{__HOSt__}}/{{list.aboutP3Img_url2}}" width="60" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--p3内容2标题-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP3Content2SubTitle">p3内容2标题:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="aboutP3Content2SubTitle" name="aboutP3Content2SubTitle" class="col-xs-10 col-sm-5" value="{{list.aboutP3Content2SubTitle}}" >
+                        </div>
+                    </div>
+
+                    <!--p3内容2-->
+                    <div class="form-group" style="height: 120px;">
+                        <label class="col-sm-2 control-label no-padding-right" for="aboutP3Content2">p3内容1:</label>
+
+                        <div class="col-sm-10">
+                            <textarea style="height:100px;" class="col-xs-10 col-sm-5" name="aboutP3Content2" id="aboutP3Content2" cols="60" rows="10">{{list.aboutP3Content2}}</textarea>
+                        </div>
+                    </div>
+
+                    <!--提交按钮-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="submit"></label>
+
+                        <div class="col-sm-10">
+                            <button type="submit" id="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+{{include 'admin/public/footer.html'}}
+<script src="{{__HOST__}}/admin/js/typeahead-bs2.min.js"></script>
+
+
+<script src="{{__HOST__}}/admin/js/bootstrap-wysiwyg.min.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        function showErrorAlert(reason, detail) {
+            var msg = '';
+            if (reason === 'unsupported-file-type') {
+                msg = "Unsupported format " + detail;
+            }
+            else {
+                console.log("error uploading file", reason, detail);
+            }
+            $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
+        }
+
+        $('#editor1').ace_wysiwyg({
+            toolbar:
+                [
+                    'font',
+                    null,
+                    'fontSize',
+                    null,
+                    {name: 'bold', className: 'btn-info'},
+                    {name: 'italic', className: 'btn-info'},
+                    {name: 'strikethrough', className: 'btn-info'},
+                    {name: 'underline', className: 'btn-info'},
+                    null,
+                    {name: 'insertunorderedlist', className: 'btn-success'},
+                    {name: 'insertorderedlist', className: 'btn-success'},
+                    {name: 'outdent', className: 'btn-purple'},
+                    {name: 'indent', className: 'btn-purple'},
+                    null,
+                    {name: 'justifyleft', className: 'btn-primary'},
+                    {name: 'justifycenter', className: 'btn-primary'},
+                    {name: 'justifyright', className: 'btn-primary'},
+                    {name: 'justifyfull', className: 'btn-inverse'},
+                    null,
+                    {name: 'createLink', className: 'btn-pink'},
+                    {name: 'unlink', className: 'btn-pink'},
+                    null,
+                    {name: 'insertImage', className: 'btn-success'},
+                    null,
+                    'foreColor',
+                    null,
+                    {name: 'undo', className: 'btn-grey'},
+                    {name: 'redo', className: 'btn-grey'}
+                ],
+            'wysiwyg': {
+                fileUploadError: showErrorAlert
+            }
+        }).prev().addClass('wysiwyg-style2');
+    })
+</script>
+
+</body>
+</html>
+
