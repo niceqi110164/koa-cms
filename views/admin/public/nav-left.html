@@ -147,12 +147,38 @@
             </ul>
         </li>
 
+        <li {{if G.url[1]=='aboutUs'}} class="active open" {{/if}}>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-paperclip"></i>
+            <span class="menu-text"> about Us </span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li {{if !G.url[2]}} class="active" {{/if}}>
+            <a href="{{__HOST__}}/admin/aboutUs">
+                <i class="icon-double-angle-right"></i>
+                aboutUs列表
+            </a>
+            </li>
+
+            <li {{if G.url[2]=='add'}} class="active" {{/if}}>
+            <a href="{{__HOST__}}/admin/aboutUs/add">
+                <i class="icon-double-angle-right"></i>
+                增加aboutUs
+            </a>
+            </li>
+        </ul>
+        </li>
+
+        <!--
         <li {{if G.url[1]==='link'}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-paperclip"></i>
                 <span class="menu-text">
 					友情链接管理
-				    <!--<span class="badge badge-primary ">5</span>-->
+				    <span class="badge badge-primary ">5</span>
 				</span>
                 <b class="arrow icon-angle-down"></b>
             </a>
@@ -170,9 +196,7 @@
                     </a>
                 </li>
             </ul>
-
-
-        </li>
+        </li>-->
 
         <li {{if G.url[1]==="nav"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle">
