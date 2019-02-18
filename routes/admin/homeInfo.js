@@ -12,12 +12,13 @@ router.get('/', async (ctx) => {
     let homeINfoResult = await DB.find('homeInfo',{});
     //console.log(homeINfoResult);
     if(homeINfoResult.length>0){
-        await ctx.render('admin/homeInfo/list',{
+        await ctx.render('admin/homeInfo/edit',{
             list:homeINfoResult[0]
         })
     }
 });
 
+/*
 router.get('/edit', async (ctx)=>{
     let id = ctx.query.id;
     let result = await DB.find("homeInfo",{'_id':DB.getObjectID(id)});
@@ -26,7 +27,9 @@ router.get('/edit', async (ctx)=>{
             list:result[0]
         })
     }
-})
+})*/
+
+
 /**
  * @编辑home信息
  * */
@@ -39,9 +42,8 @@ router.post('/doEdit', async (ctx)=>{
     json.homeSubTitle = ctx.request.body.homeSubTitle;
 
     let updateResult = await DB.update("homeInfo",{'_id':DB.getObjectID(json.id)},json);
-    ctx.redirect('/admin/homeInfo');
-    //console.log(updateResult);
-})
+    ctx.redirect(ctx.state.__HOST__+'/admin');
+});
 
 
 module.exports = router.routes();
