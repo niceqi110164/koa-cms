@@ -42,7 +42,15 @@ router.post('/doEdit', async (ctx)=>{
     json.homeSubTitle = ctx.request.body.homeSubTitle;
 
     let updateResult = await DB.update("homeInfo",{'_id':DB.getObjectID(json.id)},json);
-    ctx.redirect(ctx.state.__HOST__+'/admin');
+    //更新成功
+    if(updateResult.result.n === 1){
+        ctx.redirect(ctx.state.__HOST__+'/admin');
+    }else{
+        await ctx.render('admin/error', {
+            message: '更新失败',
+            redirect: ctx.state.__HOST__ + '/admin/homeInfo'
+        })
+    }
 });
 
 
