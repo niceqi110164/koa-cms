@@ -734,7 +734,7 @@ header .topmenu .top-data li a.log-top:hover {
 .hero button {
     margin: 10px 0;
 }
-
+/*
 .carousel-fade .carousel-inner .carousel-item .hero {
     opacity: 0;
     -webkit-transition: 2s all ease-in-out .1s;
@@ -751,7 +751,7 @@ header .topmenu .top-data li a.log-top:hover {
     -ms-transition: 2s all ease-in-out .1s;
     -o-transition: 2s all ease-in-out .1s;
     transition: 2s all ease-in-out .1s;
-}
+}*/
 
 .overlay {
     position: absolute;
@@ -816,9 +816,13 @@ header .topmenu .top-data li a.log-top:hover {
 }
 
 @media (max-width: 420px) {
+    .carousel-fade {
+        position: relative;
+        height: 50vh;
+    }
     .hero {
         position: absolute;
-        top: 45%;
+        top: 25%;
         padding: 20px 0;
         border: 3px solid #fff;
     }
