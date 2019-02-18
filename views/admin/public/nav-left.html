@@ -147,31 +147,6 @@
             </ul>
         </li>
 
-        <li {{if G.url[1]=='aboutUs'}} class="active open" {{/if}}>
-        <a href="#" class="dropdown-toggle">
-            <i class="icon-paperclip"></i>
-            <span class="menu-text"> about Us </span>
-
-            <b class="arrow icon-angle-down"></b>
-        </a>
-
-        <ul class="submenu">
-            <li {{if !G.url[2]}} class="active" {{/if}}>
-            <a href="{{__HOST__}}/admin/aboutUs">
-                <i class="icon-double-angle-right"></i>
-                aboutUs列表
-            </a>
-            </li>
-
-            <!--<li {{if G.url[2]=='add'}} class="active" {{/if}}>-->
-            <!--<a href="{{__HOST__}}/admin/aboutUs/add">-->
-                <!--<i class="icon-double-angle-right"></i>-->
-                <!--增加aboutUs-->
-            <!--</a>-->
-            <!--</li>-->
-        </ul>
-        </li>
-
         <!--
         <li {{if G.url[1]==='link'}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle">
@@ -224,45 +199,46 @@
             </ul>
         </li>
 
+        <li {{if G.url[1]==='aboutUs'}} class="active open" {{/if}}>
+        <a href="{{__HOST__}}/admin/aboutUs">
+            <i class="icon-paperclip"></i>
+            <span class="menu-text"> about Us </span>
+        </a>
+        </li>
 
         <li {{if G.url[1]==="homeInfo"}} class="active open" {{/if}}>
-            <a href="#" class="dropdown-toggle">
-                <i class="icon-flag"></i>
-                <span class="menu-text">
-					Home信息
-					<!--<span class="badge badge-primary ">5</span>-->
-				</span>
-                <b class="arrow icon-angle-down"></b>
+            <a href="{{__HOST__}}/admin/homeInfo" >
+                <i class="icon-home"></i>
+                <span class="menu-text">Home信息</span>
             </a>
 
-            <ul class="submenu">
-                <li {{if !G.url[2]}} class="active" {{/if}}>
-                    <a href="{{__HOST__}}/admin/homeInfo">
-                        <i class="icon-double-angle-right"></i>
-                        Home信息列表
-                    </a>
-                </li>
-            </ul>
+            <!--<ul class="submenu">-->
+                <!--<li {{if !G.url[2]}} class="active" {{/if}}>-->
+                    <!--<a href="{{__HOST__}}/admin/homeInfo">-->
+                        <!--<i class="icon-double-angle-right"></i>-->
+                        <!--Home信息列表-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
         </li>
 
         <li {{if G.url[1]==="siteInfo"}} class="active open" {{/if}}>
-            <a href="#" class="dropdown-toggle">
+            <a href="{{__HOST__}}/admin/siteInfo">
                 <i class="icon-flag"></i>
                 <span class="menu-text">
 					网站信息
 					<!--<span class="badge badge-primary ">5</span>-->
 				</span>
-                <b class="arrow icon-angle-down"></b>
             </a>
 
-            <ul class="submenu">
-                <li {{if !G.url[2]}} class="active" {{/if}}>
-                    <a href="{{__HOST__}}/admin/siteInfo">
-                        <i class="icon-double-angle-right"></i>
-                        信息列表
-                    </a>
-                </li>
-            </ul>
+            <!--<ul class="submenu">-->
+                <!--<li {{if !G.url[2]}} class="active" {{/if}}>-->
+                    <!--<a href="{{__HOST__}}/admin/siteInfo">-->
+                        <!--<i class="icon-double-angle-right"></i>-->
+                        <!--信息列表-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
         </li>
 
 
