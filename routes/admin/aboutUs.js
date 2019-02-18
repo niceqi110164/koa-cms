@@ -9,11 +9,11 @@ router.get('/', async (ctx)=>{
     //查询 articleCate 数据 获取分类值循环到页面上
     let result = await DB.find('aboutUs',{});
     //console.log(result);
-    await ctx.render('admin/aboutUs/list',{
+    await ctx.render('admin/aboutUs/edit',{
         list:result[0]
     });
 });
-
+/*
 router.get('/edit',async (ctx)=>{
     //获取get传值
     let id = ctx.query.id;
@@ -23,7 +23,7 @@ router.get('/edit',async (ctx)=>{
     await ctx.render('admin/aboutUs/edit',{
         list:aboutUsResult[0]
     })
-});
+});*/
 
 router.post('/doEdit',
     tools.multer().fields([
@@ -63,7 +63,7 @@ router.post('/doEdit',
 
         await DB.update('aboutUs',{},json);
         //页面重定向到list
-        ctx.redirect(ctx.state.__HOST__+'/admin/aboutUs');
+        ctx.redirect(ctx.state.__HOST__+'/admin');
 
     });
 
