@@ -40,7 +40,14 @@ router.post('/doEdit', async (ctx)=>{
     json.content = ctx.request.body.content;
 
     let updateResult = await DB.update("eynetaAbout",{'_id':DB.getObjectID(json.id)},json);
-    ctx.redirect(ctx.state.__HOST__+'/admin');
+    if(updateResult.result.n ===1){
+        ctx.redirect(ctx.state.__HOST__+'/admin');
+    }else{
+        await ctx.render('admin/error', {
+            message: '更新失败',
+            redirect: ctx.state.__HOST__ + '/admin/siteInfo'
+        })
+    }
 });
 
 
