@@ -11,12 +11,13 @@ let tools = require('../../model/tools');
 router.get('/', async (ctx) => {
     let siteINfoResult = await DB.find('eynetaAbout',{});
     if(siteINfoResult.length>0){
-        await ctx.render('admin/siteInfo/list',{
+        await ctx.render('admin/siteInfo/edit',{
             list:siteINfoResult[0]
         })
     }
 });
 
+/*
 router.get('/edit', async (ctx)=>{
     let id = ctx.query.id;
     let result = await DB.find("eynetaAbout",{'_id':DB.getObjectID(id)});
@@ -25,7 +26,8 @@ router.get('/edit', async (ctx)=>{
             list:result[0]
         })
     }
-})
+})*/
+
 /**
  * @编辑网站信息
  * */
@@ -38,9 +40,8 @@ router.post('/doEdit', async (ctx)=>{
     json.content = ctx.request.body.content;
 
     let updateResult = await DB.update("eynetaAbout",{'_id':DB.getObjectID(json.id)},json);
-    ctx.redirect('/admin/siteInfo');
-    //console.log(updateResult);
-})
+    ctx.redirect(ctx.state.__HOST__+'/admin');
+});
 
 
 module.exports = router.routes();
