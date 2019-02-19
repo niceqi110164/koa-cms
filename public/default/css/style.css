@@ -12,7 +12,6 @@
                 Black                       : #000 
 
 ======================================================*/
-@import url('https://fonts.googleapis.com/css?family=Hind:400,600');
 
 /* General CSS */
 
@@ -312,6 +311,10 @@ header .topmenu .top-data li a.log-top:hover {
     background: #fff;
 }
 
+.navbar .header-logo{
+    vertical-align: middle;
+    display: block;
+}
 .navbar-header {
     padding-left: 85px;
 }
