@@ -948,6 +948,7 @@ header .topmenu .top-data li a.log-top:hover {
     text-align: center;
     font-weight: 700;
     margin: 20px auto 10px auto;
+    font-size: 30px;
 }
 
 .title-bar .heading-border {
@@ -1354,6 +1355,7 @@ input[type=password] {
 .desc-comp-offer h2,
 .desc-comp-offer > .heading-border-light {
     margin-left: 20px;
+    font-size: 30px;
 }
 
 .desc-comp-offer-cont {
