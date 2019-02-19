@@ -96,6 +96,13 @@
 
                                 </div>
                                 <input type="hidden" name="catename" id="catename" value="{{articleCateList[0].title}}">
+                                <script>
+                                    let sel = document.getElementById("pid");
+                                    let index = sel.selectedIndex;
+                                    let selected = sel.options[index].text.trim();
+                                    document.getElementById("catename").value = selected;
+
+                                </script>
                                 <input type="hidden" name="id"  id="id" value="{{@list._id}}">
                                 <input type="hidden" name="prevPage"  value="{{prevPage}}">
                             </div>
