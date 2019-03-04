@@ -41,7 +41,8 @@ router.get('/', async (ctx) => {
         sort: {'sort': 1}
     });
     //友情链接
-    let linkResult = await DB.find('link',{});
+    //let linkResult = await DB.find('link',{});
+    //console.log(linkResult);
 
     //模块about
     let showModelAboutResult = await DB.find('eynetaAbout',{});
@@ -95,7 +96,7 @@ router.get('/', async (ctx) => {
     //渲染页面
     await ctx.render('default/index', {
         focus: focusResult,
-        link:linkResult,
+        //link:linkResult,
         showModelOffer:showModelOfferResult,
         showModelNews:sliceResult,
         showModelAbout:showModelAboutResult
@@ -196,9 +197,12 @@ router.get('/case', async (ctx) => {
 router.get('/service', async (ctx) => {
     let id = '5c4fbb50a69c360c9aa34a87';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
-    //console.log(result);
-    // 顶级分类 : 开发服务---'_id':'5b4dc68537be91292858ca8d'
-    // 利用等级分类的'_id' 查找二级分类的'pid' = '_id'
+
+    //模块about
+    let showModelAboutResult = await DB.find('eynetaAbout',{});
+    if(showModelAboutResult.length>0){
+        showModelAboutResult = showModelAboutResult[0]
+    }
 
     let serviceResult = await DB.find('articleCate', {'pid': id, 'status': '1'}, {}, {
         sort: {'sort': 1}
@@ -236,6 +240,7 @@ router.get('/service', async (ctx) => {
     await ctx.render('default/service', {
         list: serviceResult,
         result:result[0],
+        showModelAbout:showModelAboutResult,
         serviceList:serviceResultList,
         cid:cid,
         totalPages:Math.ceil(serviceResultNum/pageSize),
