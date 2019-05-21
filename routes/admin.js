@@ -69,7 +69,7 @@ let siteInfo = require('./admin/siteInfo');
 let homeInfo = require('./admin/homeInfo');
 let aboutUs = require('./admin/aboutUs');
 let setting = require('./admin/setting');
-
+let service = require('./admin/service');
 
 router.use(index);
 router.use('/login',login);
@@ -83,6 +83,7 @@ router.use('/siteInfo',siteInfo);
 router.use('/homeInfo',homeInfo);
 router.use('/aboutUs',aboutUs);
 router.use('/setting',setting);
+router.use('/service',service);
 
 // 配置后台图片上传
 // 需要传一个数组：静态目录和 UEditor 配置对象
