@@ -44,80 +44,142 @@
                 <p class="wow fadeInUp" data-wow-delay="{{showModelAbout.delayTime}}">{{showModelAbout.content}}</p>
             </div>
         </div>
+
         <div class="row wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+            {{each servicePartOneList}}
             <div class="col-md-3 col-sm-6 service-padding">
                 <div class="service-item">
-                    <div class="service-item-icon"><i class="fa fa-paint-brush fa-3x"></i>
+                    <div class="service-item-icon">
+                        <img width="100%" height="100%" src="default/images/keti.png" alt="">
                     </div>
                     <div class="service-item-title">
-                        <h3>Web Design</h3>
+                        <h3>{{$value.category_title}}</h3>
                     </div>
                     <div class="service-item-desc">
-                        <p>Laborum adipisicing do amet commodo occaecat do amet commodo occaecat.</p>
+                        <p>{{$value.category_desc}}</p>
+                        <div class="content-title-underline-light"></div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <!--
+            <div class="col-md-3 col-sm-6 service-padding">
+                <div class="service-item">
+                    <div class="service-item-icon">
+                        <i class="fa fa-paint-brush fa-3x"></i>
+                        <img width="100%" height="100%" src="default/images/keti.png" alt="">
+                    </div>
+                    <div class="service-item-title">
+                        <h3>乘客电梯</h3>
+                    </div>
+                    <div class="service-item-desc">
+                        <p>为运送乘客设计的电梯，要求有完善的安全设施以及 一定的轿内装饰。</p>
                         <div class="content-title-underline-light"></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 service-padding">
                 <div class="service-item">
-                    <div class="service-item-icon"><i class="fa fa-laptop fa-3x"></i>
+                    <div class="service-item-icon">
+                        <i class="fa fa-laptop fa-3x"></i>
+                        <img width="100%" height="100%" src="default/images/guanguang.png" alt="">
                     </div>
                     <div class="service-item-title">
-                        <h3>Web Devlopment</h3>
+                        <h3>观光电梯</h3>
                     </div>
                     <div class="service-item-desc">
-                        <p>Laborum adipisicing do amet commodo occaecat do amet commodo occaecat.</p>
+                        <p>有一面或几面的井道壁和轿厢壁同侧是透明材料，乘客在乘坐电梯时，可以观看轿厢外的景物。</p>
                         <div class="content-title-underline-light"></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 service-padding">
                 <div class="service-item">
-                    <div class="service-item-icon"><i class="fa fa-table fa-3x"></i>
+                    <div class="service-item-icon">
+                        <i class="fa fa-table fa-3x"></i>
+                        <img width="100%" height="100%" src="default/images/huoti.png" alt="">
                     </div>
                     <div class="service-item-title">
-                        <h3>Mobile Apps</h3>
+                        <h3>载货电梯</h3>
                     </div>
                     <div class="service-item-desc">
-                        <p>Laborum adipisicing do amet commodo occaecat do amet commodo occaecat.</p>
+                        <p>主要为运送货物而设计，通常有人伴随的电梯。 载货电梯轿厢具有长而窄的特点。</p>
                         <div class="content-title-underline-light"></div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 service-padding">
                 <div class="service-item right-bord">
-                    <div class="service-item-icon"><i class="fa fa-search fa-3x"></i>
+                    <div class="service-item-icon">
+                        <i class="fa fa-search fa-3x"></i>
+                        <img width="100%" height="100%" src="default/images/autofuti.png" alt="">
                     </div>
                     <div class="service-item-title">
-                        <h3>SEO Optimization</h3>
+                        <h3>自动扶梯</h3>
                     </div>
                     <div class="service-item-desc">
-                        <p>Laborum adipisicing do amet commodo occaecat do amet commodo occaecat.</p>
+                        <p>自动扶梯由一台特种结构形式的链式输送机和两台特殊结构形式的胶带输送机所组合而成。</p>
                         <div class="content-title-underline-light"></div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>
 
 <!--====================================================
                     FINANCIAL-P1
-======================================================
+======================================================-->
+{{each servicePartTwoList}}
+{{if $value.sort === "1"}}
 <section id="financial-p1" class="bg-parallax financial-p3-bg">
     <div class="overlay-financial-p1"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 financial-p1-pos">
                 <div class="financial-p1-cont">
-                    <a href="#"> <b>Richtech Technology</b></a>
-                    <h3>Excellent Strategies For </h3>
-                    <p>Businessbox will deliver value to all the stakeholders and will attain excellence and leadership
-                        through such delivery of value. We will strive to support the stakeholders in all activities
-                        related to us. Businessbox provide great things.Everyone defines success differently – as much
-                        as there are people, there are different opinions. Number one in our priority list is the
-                        success of our students, alumni and their employers.</p>
-                    <button class="btn btn-general btn-white" role="button">Contact Us</button>
+                    <a href="#"> <b>{{$value.title}}</b></a>
+                    <h3>{{$value.sub_title}}</h3>
+                    <p>{{$value.content}}</p>
+                    <button class="btn btn-general btn-white" role="button">{{$value.btn_title}}</button>
+                </div>
+            </div>
+            <div class="col-md-6 financial-p1-emp-img"></div>
+        </div>
+    </div>
+</section>
+{{else}}
+<section id="financial-p1" class="bg-parallax financial-p2-bg">
+    <div class="overlay-financial-p1"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 financial-p1-emp-img"></div>
+            <div class="col-md-6 financial-p1-pos financial-p1-emp-desc-d">
+                <div class="financial-p1-cont">
+                    <a href="#"> <b>{{$value.title}}</b></a>
+                    <h3>{{$value.sub_title}}</h3>
+                    <p>{{$value.content}}</p>
+                    <button class="btn btn-general btn-white" role="button">{{$value.btn_title}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/each}}
+<!--
+<section id="financial-p1" class="bg-parallax financial-p3-bg">
+    <div class="overlay-financial-p1"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 financial-p1-pos">
+                <div class="financial-p1-cont">
+                    <a href="#"> <b>销售网络</b></a>
+                    <h3>为全世界各地提供优质产品</h3>
+                    <p>逸立达电梯拥有一支技术精，专业强，素质好的安装、维保团队，并严格按照公司完善的服务管理体系要求，随时向用户提供高标准的售前、售中、售后服务。只要客户需要，逸立达电梯将在最短的时间内满足或提供最佳解决方案。
+                        Eyneta elevator has a sophisticated technology, professional strong, installation, maintenance team, quality and perfect service management system in strict accordance with the requirements, at any time to provide customers with high standards of  , sale and after-sale service. As long as the customer needs, Eyneta elevator will be in the shortest possible time to meet or provide the best solution.
+                    </p>
+                    <button class="btn btn-general btn-white" role="button">联系我们</button>
                 </div>
             </div>
             <div class="col-md-6 financial-p1-emp-img"></div>
@@ -131,20 +193,18 @@
             <div class="col-md-6 financial-p1-emp-img"></div>
             <div class="col-md-6 financial-p1-pos financial-p1-emp-desc-d">
                 <div class="financial-p1-cont">
-                    <a href="#"> <b>Richtech Technology</b></a>
-                    <h3>Transfer Financial Services</h3>
-                    <p>Businessbox will deliver value to all the stakeholders and will attain excellence and leadership
-                        through such delivery of value. We will strive to support the stakeholders in all activities
-                        related to us. Businessbox provide great things.Everyone defines success differently – as much
-                        as there are people, there are different opinions. Number one in our priority list is the
-                        success of our students, alumni and their employers.</p>
-                    <button class="btn btn-general btn-white" role="button">Contact Us</button>
+                    <a href="#"> <b>售后服务</b></a>
+                    <h3>周到完善的售后体系</h3>
+                    <p>逸立达电梯拥有一支技术精，专业强，素质好的安装、维保团队，并严格按照公司完善的服务管理体系要求，随时向用户提供高标准的售前、售中、售后服务。只要客户需要，逸立达电梯将在最短的时间内满足或提供最佳解决方案。
+                        Eyneta elevator has a sophisticated technology, professional strong, installation, maintenance team, quality and perfect service management system in strict accordance with the requirements, at any time to provide customers with high standards of  , sale and after-sale service. As long as the customer needs, Eyneta elevator will be in the shortest possible time to meet or provide the best solution.
+                    </p>
+                    <button class="btn btn-general btn-white" role="button">联系我们</button>
                 </div>
             </div>
         </div>
     </div>
-</section>
--->
+</section>-->
+
 <!--====================================================
                       FINANCIAL-P5
 ======================================================

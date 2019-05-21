@@ -27,6 +27,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     cursor: pointer;
     text-align: center;
     transition: padding .5s ease;
+    height:340px;
 }
 
 .service-item:last-child {
@@ -49,6 +50,12 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     border-radius: 100%;
 }
 
+.service-item-icon img{
+    width: 100%;
+    height:100%;
+    border-radius:50%;
+}
+
 .service-item-icon i {
     color: #2196f3;
     height: 90px;
@@ -59,9 +66,14 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     text-align: center;
 }
 
-.service-item:hover .service-item-icon i {
+/*.service-item:hover .service-item-icon i {*/
+    /*color: #fff;*/
+    /*background-color: #2196f3;*/
+/*}*/
+.service-item:hover .service-item-icon{
     color: #fff;
-    background-color: #2196f3;
+    /*background-color: #2196f3;*/
+    border: 6px solid #2196f3;
 }
 
 .service-item-title h3 {
@@ -75,7 +87,9 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 .service-item-desc p {
     margin: 20px auto;
     width: 70%;
-    text-align: center
+    text-align: center;
+    height:104px;
+    overflow: hidden;
 }
 
 ul.service-spec {

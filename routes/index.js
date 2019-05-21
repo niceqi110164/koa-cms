@@ -195,7 +195,8 @@ router.get('/case', async (ctx) => {
  * 服务
  * */
 router.get('/service', async (ctx) => {
-    let id = '5c4fbb50a69c360c9aa34a87';
+    // let id = '5c4fbb50a69c360c9aa34a87';
+    let id = '5c4fba87f27f7d445c4fd896';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
 
     //模块about
@@ -237,7 +238,14 @@ router.get('/service', async (ctx) => {
         //console.log(serviceResultNum);
     }
 
+    /**前端service上半部分*/
+    let servicePartOne = await DB.find('service',{});
+    /**前端service下半部分*/
+    let servicePartTwo = await DB.find('serviceSec',{});
+
     await ctx.render('default/service', {
+        servicePartOneList:servicePartOne,
+        servicePartTwoList:servicePartTwo,
         list: serviceResult,
         result:result[0],
         showModelAbout:showModelAboutResult,
