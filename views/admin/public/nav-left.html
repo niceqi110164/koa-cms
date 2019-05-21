@@ -199,6 +199,39 @@
             </ul>
         </li>
 
+
+        <li {{if G.url[1]==="service"}} class="active open" {{/if}}>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-list-alt"></i>
+            <span class="menu-text">
+					service管理
+                <!--<span class="badge badge-primary ">5</span>-->
+				</span>
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li {{if !G.url[2]}} class="active" {{/if}}>
+            <a href="{{__HOST__}}/admin/service">
+                <i class="icon-double-angle-right"></i>
+                类型列表
+            </a>
+            </li>
+            <li {{if G.url[2]==='subList'}} class="active" {{/if}}>
+            <a href="{{__HOST__}}/admin/service/subList">
+                <i class="icon-double-angle-right"></i>
+                服务列表
+            </a>
+            </li>
+            <!--<li {{if G.url[2]==='add'}} class="active" {{/if}}>-->
+            <!--<a href="{{__HOST__}}/admin/service/add">-->
+                <!--<i class="icon-double-angle-right"></i>-->
+                <!--增加类型-->
+            <!--</a>-->
+            <!--</li>-->
+        </ul>
+        </li>
+
         <li {{if G.url[1]==='aboutUs'}} class="active open" {{/if}}>
         <a href="{{__HOST__}}/admin/aboutUs">
             <i class="icon-paperclip"></i>
