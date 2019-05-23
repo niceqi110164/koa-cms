@@ -10,11 +10,23 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 ======================================================*/
 
 .business-growth-p1 {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 .business-growth-p1>.container>.row>.service-padding {
     padding: 0;
+}
+.service-category{
+    padding:50px 0;
+}
+
+.service-item-title{
+    width:100%;
+}
+.service-item-title h2{
+    font-size: 22px;
+    margin:20px;
+    font-weight: bold;
 }
 
 .service-item {
@@ -28,6 +40,10 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     text-align: center;
     transition: padding .5s ease;
     height:340px;
+}
+
+.service-item a{
+    text-decoration: none;
 }
 
 .service-item:last-child {
@@ -110,11 +126,76 @@ ul.service-spec li p {
     }
 }
 
+/*====================================================
+                   service-details
+======================================================*/
+.single-news-p1 {
+    padding: 50px 0;
+}
 
+.small-service-box{
+    border: 1px solid #eee;
+}
+
+.small-service-box a{
+    text-decoration: none;
+}
+
+.small-service-box .right-side-sn-cont{
+    border: 1px solid #eee;
+    margin: 20px;
+    padding: 20px;
+}
+
+.small-service-box .right-side-sn-cont img{
+    width: 120px;
+    height: 80px;
+    float: left;
+    margin-right: 15px;
+}
+
+.small-service-box .right-side-sn-cont p{
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    height: 50px;
+    font-weight: 400;
+    padding-top: 5px;
+}
+
+.small-service-box .right-side-sn-cont small {
+    color: #888;
+}
+
+.single-news-p1 .single-news-desc {
+    padding:0 50px;
+}
+.single-news-desc>h3 {
+    font-size: 26px;
+}
+
+.single-news-p1 .single-news-desc li {
+    display: inline-block;
+    vertical-align: top;
+    display: inline;
+    margin: 0 40px 0 0;
+}
+
+.single-news-p1 .single-news-desc .bg-light-gray {
+    padding: 20px 10px;
+}
+
+.service-d-content img{
+    width: 100%;
+}
 /*====================================================
                    FINANCIAL-P1
 ======================================================*/
- 
+
 .financial-p2-bg {
     background-image: url(../images/image-1.png);
     background-repeat: no-repeat;
