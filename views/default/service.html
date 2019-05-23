@@ -44,86 +44,41 @@
                 <p class="wow fadeInUp" data-wow-delay="{{showModelAbout.delayTime}}">{{showModelAbout.content}}</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="row wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-            {{each servicePartOneList}}
-            <div class="col-md-3 col-sm-6 service-padding">
-                <div class="service-item">
-                    <div class="service-item-icon">
-                        <img width="100%" height="100%" src="{{__HOST__}}/{{$value.category_img}}" alt="">
+<!--====================================================
+                       service
+======================================================-->
+<section class="business-growth-p1 service-category">
+    <div class="container-fluid">
+        {{each list}}
+        <div class="row" style="margin:30px 0;">
+            <div class="service-item-title">
+                <h2>{{$value.title}}</h2>
+            </div>
+            {{each $value.list}}
+            <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
+                <div class="desc-comp-offer-cont">
+                    <div class="thumbnail-blogs">
+                        <div class="caption">
+                            <a href="/service-details/{{@$value._id}}">
+                                <i class="fa fa-chain"></i>
+                            </a>
+                        </div>
+                        <img src="{{$value.img_url}}" class="img-fluid" alt="...">
                     </div>
-                    <div class="service-item-title">
-                        <h3>{{$value.category_title}}</h3>
-                    </div>
-                    <div class="service-item-desc">
-                        <p>{{$value.category_desc}}</p>
-                        <div class="content-title-underline-light"></div>
-                    </div>
+                    <h3>{{$value.title}}</h3>
+                    <div class="desc">{{$value.description}} </div>
+                    <a href="/service-details/{{@$value._id}}">
+                        <i class="fa fa-arrow-circle-o-right"></i>
+                        详情地址
+                    </a>
                 </div>
             </div>
             {{/each}}
-            <!--
-            <div class="col-md-3 col-sm-6 service-padding">
-                <div class="service-item">
-                    <div class="service-item-icon">
-                        <i class="fa fa-paint-brush fa-3x"></i>
-                        <img width="100%" height="100%" src="default/images/keti.png" alt="">
-                    </div>
-                    <div class="service-item-title">
-                        <h3>乘客电梯</h3>
-                    </div>
-                    <div class="service-item-desc">
-                        <p>为运送乘客设计的电梯，要求有完善的安全设施以及 一定的轿内装饰。</p>
-                        <div class="content-title-underline-light"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 service-padding">
-                <div class="service-item">
-                    <div class="service-item-icon">
-                        <i class="fa fa-laptop fa-3x"></i>
-                        <img width="100%" height="100%" src="default/images/guanguang.png" alt="">
-                    </div>
-                    <div class="service-item-title">
-                        <h3>观光电梯</h3>
-                    </div>
-                    <div class="service-item-desc">
-                        <p>有一面或几面的井道壁和轿厢壁同侧是透明材料，乘客在乘坐电梯时，可以观看轿厢外的景物。</p>
-                        <div class="content-title-underline-light"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 service-padding">
-                <div class="service-item">
-                    <div class="service-item-icon">
-                        <i class="fa fa-table fa-3x"></i>
-                        <img width="100%" height="100%" src="default/images/huoti.png" alt="">
-                    </div>
-                    <div class="service-item-title">
-                        <h3>载货电梯</h3>
-                    </div>
-                    <div class="service-item-desc">
-                        <p>主要为运送货物而设计，通常有人伴随的电梯。 载货电梯轿厢具有长而窄的特点。</p>
-                        <div class="content-title-underline-light"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 service-padding">
-                <div class="service-item right-bord">
-                    <div class="service-item-icon">
-                        <i class="fa fa-search fa-3x"></i>
-                        <img width="100%" height="100%" src="default/images/autofuti.png" alt="">
-                    </div>
-                    <div class="service-item-title">
-                        <h3>自动扶梯</h3>
-                    </div>
-                    <div class="service-item-desc">
-                        <p>自动扶梯由一台特种结构形式的链式输送机和两台特殊结构形式的胶带输送机所组合而成。</p>
-                        <div class="content-title-underline-light"></div>
-                    </div>
-                </div>
-            </div>-->
         </div>
+        {{/each}}
     </div>
 </section>
 

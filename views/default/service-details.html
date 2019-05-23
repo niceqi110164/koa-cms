@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{include "default/public/header-template.html"}}
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="{{__HOST__}}/default/css/services.css">
+</head>
+
+<body id="page-top">
+<!--====================================================
+                         HEADER
+======================================================-->
+<header>
+    <!-- sidr-->
+    {{include "default/public/sidr.html"}}
+    <!-- Navbar-->
+    {{include "default/public/nav-template.html"}}
+</header>
+
+<!--====================================================
+                       HOME-P
+======================================================-->
+<div id="home-p" class="home-p pages-head1 text-center">
+    <div class="container">
+        <h1 class="wow fadeInUp" data-wow-delay="0.1s">{{list.title}}</h1>
+        <p>{{list.keywords}}</p>
+    </div><!--/end container-->
+</div>
+
+<!--====================================================
+                      NEWS DETAILS
+======================================================-->
+<section id="single-news-p1" class="single-news-p1">
+    <div class="container">
+        <div class="row">
+
+            <!-- left news details -->
+            <div class="col-md-8">
+                <div class="single-news-p1-cont">
+                    <!--<div class="single-news-img">-->
+                        <!--<img src="{{__HOST__}}/{{list.img_url}}" alt="" class="img-fluid">-->
+                    <!--</div>-->
+                    <div class="single-news-desc">
+                        <h3>{{list.keywords}}</h3>
+                        <ul class="list-inline">
+                            <li>Posted: <span class="text-theme-colored2"> {{list.add_time | dateFormat}}</span></li>
+                            <li>By: <span class="text-theme-colored2">{{list.author}}</span></li>
+                            <li><i class="fa fa-comments-o"></i> 1 comments</li>
+                        </ul>
+                        <hr>
+                        <div class="bg-light-gray service-d-content">
+                            {{@list.content}}
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <!-- Right news details -->
+            <div class="col-md-4">
+                <!-- -->
+                <div class="small-service-box">
+                    {{each smallList}}
+                    <a href="{{__HOST__}}/service-details/{{@$value._id}}">
+                        <div class="right-side-sn-cont">
+                            <img src="{{__HOST__}}/{{$value.img_url}}" alt="" class="img-fluid">
+                            <p>{{$value.description}}</p>
+                            <small>
+                                <fa class="fa-watch"> {{$value.add_time | dateFormat}}</fa>
+                            </small>
+                        </div>
+                    </a>
+                    {{/each}}
+                </div>
+
+                <div class="ad-box-sn">
+                    <h3 class="pb-2">Current News</h3>
+                    <div class="card">
+                        <div class="desc-comp-offer-cont">
+                            <div class="thumbnail-blogs">
+                                <div class="caption">
+                                    <i class="fa fa-chain"></i>
+                                </div>
+                                <img src="{{__HOST__}}/{{list.img_url}}" class="img-fluid" alt="...">
+                            </div>
+                            <h3>{{list.title}}</h3>
+                            <div class="desc">
+                                {{list.description}}
+                            </div>
+                            <a href="#"><i class="fa fa-arrow-circle-o-right"></i> 详情地址</a>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="card">
+                        <div class="desc-comp-offer-cont">
+                            <div class="thumbnail-blogs">
+                                <div class="caption">
+                                    <i class="fa fa-chain"></i>
+                                </div>
+                                <img src="{{__HOST__}}/default/images/news/news-9.jpg" class="img-fluid" alt="...">
+                            </div>
+                            <h3>Hilly terrain cart</h3>
+                            <p class="desc">Three equidistant wheels on a single axle attached to two similar sets in
+                                different planes, allowing flexibility in movement with respect to each other. </p>
+                            <a href="#"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="desc-comp-offer-cont">
+                            <div class="thumbnail-blogs">
+                                <div class="caption">
+                                    <i class="fa fa-chain"></i>
+                                </div>
+                                <img src="{{__HOST__}}/default/images/news/news-11.jpg" class="img-fluid" alt="...">
+                            </div>
+                            <h3>Indicator for dead landline phones</h3>
+                            <p class="desc">Contrary to popular </p>
+                            <a href="#"><i class="fa fa-arrow-circle-o-right"></i> Learn More</a>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--====================================================
+                      FOOTER
+======================================================-->
+{{include "default/public/footer-template.html"}}
+
+</body>
+
+</html>
