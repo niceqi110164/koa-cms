@@ -195,65 +195,94 @@ router.get('/case', async (ctx) => {
  * 服务
  * */
 router.get('/service', async (ctx) => {
-    // let id = '5c4fbb50a69c360c9aa34a87';
-    let id = '5c4fba87f27f7d445c4fd896';
+    let id = '5c4fbb50a69c360c9aa34a87';
+    //let id = '5c4fba87f27f7d445c4fd896';
     let result = await DB.find('articleCate',{'_id':DB.getObjectID(id)});
 
+    //console.log(result);
     //模块about
     let showModelAboutResult = await DB.find('eynetaAbout',{});
     if(showModelAboutResult.length>0){
         showModelAboutResult = showModelAboutResult[0]
     }
-
+    //查找所有pid等于id的项
     let serviceResult = await DB.find('articleCate', {'pid': id, 'status': '1'}, {}, {
         sort: {'sort': 1}
     });
 
+    //console.log(serviceResult);//获取分组
+
     let page = ctx.query.page || 1; //获取当前第几页
-    let pageSize = 3;//每一页显示的条数
+    let pageSize = 4;//每一页显示的条数
     let serviceResultList = '';
     let serviceResultNum = ''; //获取总条数
-    //获取分类cid
-    let cid = ctx.query.cid;
-    if(cid){
-        serviceResultList = await DB.find('article',{'pid':cid},{},{
-            page,
-            pageSize
-        });
-        serviceResultNum = await DB.count('article',{'pid':cid}); //查询总条数
-        //console.log(serviceResultNum);
-    }else{
-        //利用$in 方法 获取到所用二级分类下的所用子分类文章
-        let serviceResultArr = [];
-        for(let item of serviceResult){
-            serviceResultArr.push(item._id.toString())
-        }
 
-        //获取所有二级分类下的文章
-        serviceResultList = await DB.find('article',{'pid':{$in:serviceResultArr},'status': '1'},{},{
-            page,
-            pageSize
-        });
-        serviceResultNum = await DB.count('article',{'pid':{$in:serviceResultArr},'status': '1'});
-        //console.log(serviceResultNum);
+
+    //利用$in 方法 获取到所用二级分类下的所用子分类文章
+    let serviceResultArr = [];
+    for(let item of serviceResult){
+        serviceResultArr.push(item._id.toString())
     }
 
-    /**前端service上半部分*/
-    let servicePartOne = await DB.find('service',{});
+    //console.log(serviceResultArr);获取_id数组
+
+    //获取所有二级分类下的所有文章
+    serviceResultList = await DB.find('article',{'pid':{$in:serviceResultArr},'status': '1'});
+
+    //console.log(serviceResultList);
+
+    for(let i=0;i<serviceResult.length;i++){
+        serviceResult[i].list = [];
+        for(let j=0;j<serviceResultList.length;j++){
+            if(serviceResult[i]._id == serviceResultList[j].pid){
+                serviceResult[i].list.push(serviceResultList[j])
+            }
+        }
+    }
+    //console.log(serviceResult);
+    //serviceResultNum = await DB.count('article',{'pid':{$in:serviceResultArr},'status': '1'});
+
     /**前端service下半部分*/
     let servicePartTwo = await DB.find('serviceSec',{});
 
     await ctx.render('default/service', {
-        servicePartOneList:servicePartOne,
         servicePartTwoList:servicePartTwo,
         list: serviceResult,
         result:result[0],
         showModelAbout:showModelAboutResult,
         serviceList:serviceResultList,
-        cid:cid,
+        //cid:cid,
         totalPages:Math.ceil(serviceResultNum/pageSize),
         page:page
     });
+});
+
+/**
+ * 服务详情页面
+ * */
+router.get('/service-details/:id', async (ctx)=>{
+    let id = ctx.params.id;
+    //console.log(id);
+    let serviceDetailsResult = await DB.find('article',{'_id':DB.getObjectID(id)});
+
+    if(serviceDetailsResult.length>0){
+        serviceDetailsResult = serviceDetailsResult[0]
+    }
+    //console.log(serviceDetailsResult);
+
+    //查找所有pid等于id的项
+    let serviceResult = await DB.find('article', {'pid':serviceDetailsResult.pid, 'status': '1'}, {}, {
+        sort: {'sort': 1}
+    });
+    //console.log(serviceResult);
+    //随机获取数据
+    let smallShuffleResult = tools.getRandomArrayElements(serviceResult,4);
+    console.log(smallShuffleResult);
+    //渲染
+    await ctx.render('default/service-details',{
+        list:serviceDetailsResult,
+        smallList:smallShuffleResult
+    })
 });
 
 /**
