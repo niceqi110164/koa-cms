@@ -20,6 +20,11 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     padding:50px 0;
 }
 
+.service-row{
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
 .service-item-title{
     width:100%;
 }
@@ -122,7 +127,7 @@ ul.service-spec li p {
 
 @media (max-width: 767px) {
     .business-growth-p1 {
-        padding: 0 40px 100px 40px;
+        /*padding: 0 40px 100px 40px;*/
     }
 }
 
