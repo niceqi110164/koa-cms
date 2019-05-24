@@ -197,6 +197,26 @@ ul.service-spec li p {
 .service-d-content img{
     width: 100%;
 }
+
+.single-news-p1 .ad-box-sn{
+    margin-top: 50px;
+    border: 1px solid #eee;
+    padding: 20px 20px 0;
+}
+
+.single-news-p1 .card {
+    border: 0px solid rgba(0,0,0,.125);
+}
+
+.single-news-p1 .desc-comp-offer-cont {
+    margin-bottom: 20px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+}
+
+.single-news-p1 .desc-comp-offer-cont:hover {
+    border-bottom: 6px solid #2196f3;
+}
 /*====================================================
                    FINANCIAL-P1
 ======================================================*/
