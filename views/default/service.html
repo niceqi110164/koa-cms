@@ -58,7 +58,9 @@
             <div class="service-item-title">
                 <h2>{{$value.title}}</h2>
             </div>
-            {{each $value.list}}
+            {{set category = $value}}
+            {{each serviceList}}
+            {{if category._id==$value.pid}}
             <div class="col-md-3 col-sm-6 desc-comp-offer wow fadeInUp" data-wow-delay="{{$value.delayTime}}">
                 <div class="desc-comp-offer-cont">
                     <div class="thumbnail-blogs">
@@ -73,10 +75,11 @@
                     <div class="desc">{{$value.description}} </div>
                     <a href="/service-details/{{@$value._id}}">
                         <i class="fa fa-arrow-circle-o-right"></i>
-                        详情地址
+                        更多...
                     </a>
                 </div>
             </div>
+            {{/if}}
             {{/each}}
         </div>
         {{/each}}

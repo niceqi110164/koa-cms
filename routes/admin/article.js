@@ -14,6 +14,11 @@ router.get('/',async (ctx)=>{
     let countData = await DB.count('article',{});
     //console.log(countData); 7
 
+    let tmpCategoryList = await DB.find('articleCate',{});
+    let categoryList = {};
+    for(let i=0; i<tmpCategoryList.length; i++) {
+        categoryList[tmpCategoryList[i]._id.toString()] = tmpCategoryList[i];
+    }
 
     let page = ctx.query.page || 1; //获取当前页数
     let pageSize = 7;
@@ -24,13 +29,17 @@ router.get('/',async (ctx)=>{
             'add_time':-1
         }
     });
+    for(i=0; i<data.length; i++) {
+        data[i].catename = categoryList[data[i].pid].title;
+    }
     //console.log(data);
     //console.log(Math.ceil(countData / pageSize)); 3
     //console.log(tools.cateToList(data));
     await ctx.render('admin/article/index',{
         list:data,
         totalPages : Math.ceil(countData/pageSize), //向上取整:
-        currentPage:page
+        currentPage:page,
+        categoryList : categoryList
     });
 });
 
